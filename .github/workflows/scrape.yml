@@ -1,0 +1,38 @@
+name: Scrape Immigration Sources
+
+on:
+  schedule:
+    # Runs every day at 7:00am UTC (3:00am ET / midnight PT)
+    - cron: "0 7 * * *"
+  # Also allows manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit feed_data.json back to repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install scraper dependencies
+        run: pip install feedparser requests
+
+      - name: Run BorderPass feed scraper
+        run: python borderpass_scraper.py
+
+      - name: Commit updated feed data
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "BorderPass Bot"
+          git add feed_data.json
+          # Only commit if feed_data.json actually changed
+          git diff --staged --quiet || git commit -m "chore: refresh feed data $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
