@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BorderPass Content Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body { background: #FEFBF6; font-family: 'Outfit', system-ui, sans-serif; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F0EEEA; }
+    ::-webkit-scrollbar-thumb { background: #CFCCC9; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #9E9994; }
+    select { font-family: inherit; }
+    @keyframes bpPulse { 0%,100%{opacity:.4} 50%{opacity:.8} }
+    @keyframes bpSlideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes bpScan { from{top:-5%} to{top:105%} }
+    .bp-w1 { animation: bpSlideUp .5s ease .1s both; }
+    .bp-w2 { animation: bpSlideUp .5s ease .4s both; }
+    .bp-w3 { animation: bpSlideUp .5s ease .7s both; }
+    .bp-accent { animation: bpPulse 3s ease-in-out infinite; }
+    .bp-scan { animation: bpScan 4s linear infinite; }
+    .bp-dot { animation: bpPulse 2s infinite; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect, useCallback } = React;
+
+// ─── BRAND TOKENS ─────────────────────────────────────────────────────────────
+const C = {
+  b9:"#10273D",b8:"#1B3E5F",b6:"#466381",b4:"#7A99B8",b2:"#B2C2D2",b1:"#E0E8F0",
+  g9:"#5A4424",g8:"#826741",g6:"#B68D54",g4:"#CCB38E",g2:"#E5D6C2",g1:"#F4EDE2",
+  gr8:"#455841",gr1:"#E2E8E1",r8:"#753E3E",r1:"#F2E8E8",
+  bk:"#151414",wh:"#FEFBF6",bwh:"#FFFDFA",
+  n8:"#2A2927",n7:"#504D49",n6:"#78736E",n5:"#9E9994",n4:"#CFCCC9",n2:"#F0EEEA",
+  dp:"'Crimson Pro', Georgia, serif", db:"'Outfit', system-ui, sans-serif",
+};
+
+// ─── FEED DATA ─────────────────────────────────────────────────────────────────
+const FEED = [
+  {id:"f1",cat:"ircc",src:"IRCC.gc.ca",date:"Mar 26, 2026",urgency:"high",
+   title:"Express Entry Draw #293: 847 Invitations, CRS Cut-off 524",
+   summary:"Latest all-program draw issued 847 ITAs. CRS dropped 6 points to 524, tracking IRCC's 485,000 PR target for 2026. Category-based draws for STEM and healthcare expected Q2.",
+   tags:["Express Entry","CRS 524","PR Pathway"],
+   url:"https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html"},
+  {id:"f2",cat:"ircc",src:"IRCC.gc.ca",date:"Mar 20, 2026",urgency:"high",
+   title:"Study Permit Cap Extended Through 2026 — New Provincial Allocations Live",
+   summary:"Cap maintained for 2026 intake. New allocations prioritize graduate-level programs and co-op streams. Several Ontario and BC institutions are already at capacity. Stricter document requirements in effect.",
+   tags:["Study Permit","Cap 2026","International Students"],
+   url:"https://www.canada.ca/en/immigration-refugees-citizenship/news/2024/01/canada-to-stabilize-growth-and-decrease-number-of-new-international-student-study-permit-holders.html"},
+  {id:"f3",cat:"ircc",src:"IRCC.gc.ca",date:"Mar 15, 2026",urgency:"high",
+   title:"PGWP Processing Now Averaging 17 Weeks",
+   summary:"Post-graduation work permit processing has extended to 17 weeks average. Maintained status applies to graduates who applied before their study permit expired. IRCC recommends applying immediately after graduation.",
+   tags:["PGWP","Processing Time","Work Permit"],
+   url:"https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html"},
+  {id:"f4",cat:"ircc",src:"IRCC.gc.ca",date:"Mar 10, 2026",urgency:"medium",
+   title:"Rural & Northern Immigration Pilot Expands to 14 New Communities",
+   summary:"RNIP now covers 14 additional communities across Manitoba, Saskatchewan, and Northern Ontario. Employer endorsement remains central. Occupations list updated to reflect regional labour market needs.",
+   tags:["RNIP","Rural Immigration","Employer Pathway"],
+   url:"https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/rural-northern-immigration-pilot.html"},
+  {id:"f5",cat:"competitor",src:"Arrive Finance",date:"Mar 24, 2026",urgency:"medium",
+   title:"Arrive Launches Newcomer Mortgage Prep Tool — Immigration Gap Visible",
+   summary:"New feature focuses on financial readiness only. Does not address PGWP validity, work authorization status, or immigration pathway — the actual blockers for newcomer mortgage approvals. Clear content gap for BorderPass to own.",
+   tags:["Arrive","Gap Analysis","Fintech"],url:"#"},
+  {id:"f6",cat:"competitor",src:"Moving2Canada",date:"Mar 21, 2026",urgency:"low",
+   title:'"Top 10 Jobs for New Immigrants" Driving Strong Organic Traffic',
+   summary:"High-engagement content. Key gap: no connection between job type and required immigration pathway or work permit eligibility. BorderPass can own the immigration-integrated version of this evergreen content.",
+   tags:["Moving2Canada","SEO","Content Gap"],url:"#"},
+  {id:"f7",cat:"competitor",src:"CanadaVisa",date:"Mar 18, 2026",urgency:"medium",
+   title:"CanadaVisa Processing Time Tracker Hits 45K Monthly Visits",
+   summary:"High-traffic tool with no student-specific variant and no interpretation layer. Opportunity: weekly processing time updates with meaning, not just raw numbers. Tracker + commentary = differentiated tool.",
+   tags:["CanadaVisa","SEO","Tool Gap"],url:"#"},
+  {id:"f8",cat:"ugc",src:"r/ImmigrationCanada",date:"Mar 27, 2026",urgency:"high",
+   title:'"Can I work while my PGWP is processing?" — 847 upvotes, 312 comments',
+   summary:"Top post this week. Most answers are incomplete or contradictory. Correct answer: yes, via maintained status, with specific conditions most people miss. High-urgency content opportunity — own this answer definitively.",
+   tags:["PGWP","Reddit","FAQ","High Intent"],url:"https://www.reddit.com/r/ImmigrationCanada/"},
+  {id:"f9",cat:"ugc",src:"r/studyAbroad",date:"Mar 25, 2026",urgency:"high",
+   title:'"Is a Canadian degree still worth it?" — 1.2K upvotes, 489 comments',
+   summary:"Growing anxiety about Canada's value proposition. Key concerns: cost, permit uncertainty, post-graduation pathways. Mixed-to-negative sentiment trending. A trust-building opportunity — answer honestly with data.",
+   tags:["Student Sentiment","Anxiety","Reddit"],url:"https://www.reddit.com/r/studyAbroad/"},
+  {id:"f10",cat:"ugc",src:"TikTok @immigrationcanada",date:"Mar 22, 2026",urgency:"high",
+   title:'"My study permit was refused for this reason" — 2.3M views',
+   summary:"Viral TikTok on refusal reasons. Top comment: 'How do I know if mine will be refused?' No immigration brand has answered this clearly. Refusal prevention content converts strongly for BorderPass's funnel.",
+   tags:["TikTok","Viral","Study Permit","Refusal"],url:"https://www.tiktok.com/"},
+  {id:"f11",cat:"ugc",src:"Facebook: Canada Immigration",date:"Mar 20, 2026",urgency:"medium",
+   title:'"My employer wants to hire me full-time but doesn\'t know how" — 540 comments',
+   summary:"International grads struggling to help employers navigate work authorization. Strong signal for employer-facing content about PGWP-based hiring mechanics. Dual-audience opportunity (student + employer content).",
+   tags:["Employer","Facebook","Work Auth"],url:"#"},
+  {id:"f12",cat:"industry",src:"CBIE Research",date:"Mar 19, 2026",urgency:"high",
+   title:"International Student Enrollment Down 11% — First Decline in 12 Years",
+   summary:"Cap policies and economic concerns drive historic enrollment drop. Employer talent pipelines dependent on international graduates are beginning to contract. The data story for B2B audiences is compelling and available.",
+   tags:["CBIE","Enrollment Data","Employers"],url:"https://cbie.ca"},
+  {id:"f13",cat:"industry",src:"CBC News",date:"Mar 17, 2026",urgency:"high",
+   title:"67% of Canadian Employers Struggle to Retain International Graduates",
+   summary:"CBC survey of 320 employers: immigration uncertainty is the primary retention barrier, ahead of salary and culture. This validates BorderPass's employer value proposition with third-party data at scale.",
+   tags:["Employers","Retention","CBC"],url:"https://cbc.ca"},
+  {id:"f14",cat:"industry",src:"CAPS-I Newsletter",date:"Mar 14, 2026",urgency:"medium",
+   title:"DLI Compliance Audits Start Q2 — International Student Support in Scope",
+   summary:"Designated learning institutions face new auditing on international student support starting April 2026. Schools that can't demonstrate adequate support risk DLI status. Institutional partnership angle for BorderPass.",
+   tags:["DLI","Compliance","Post-Secondary"],url:"#"},
+];
+
+// ─── TOPICS ───────────────────────────────────────────────────────────────────
+const TOPICS = [
+  {id:"t1",title:"Express Entry Draw #293: What CRS 524 Actually Means for Your Profile",
+   feedIds:["f1"],cat:"Policy Update",audience:["Prospective Immigrants","Express Entry Applicants"],urgency:"high",
+   angle:"Data-driven explainer: who this draw helped, who it didn't, and what category-based draws mean for Q2.",
+   fit:{ig:4,tk:5,li:5,bl:5,em:4,yt:4}},
+  {id:"t2",title:"Study Permit Cap 2026: The Window Is Shorter Than You Think",
+   feedIds:["f2"],cat:"Policy Update",audience:["Prospective Students","International Students"],urgency:"high",
+   angle:"Urgency plus clarity: what changed in the allocations, who it favours, and what to do this week.",
+   fit:{ig:5,tk:5,li:3,bl:4,em:5,yt:4}},
+  {id:"t3",title:"Yes, You Can Work While Your PGWP Is Processing — Here's Exactly How",
+   feedIds:["f3","f8"],cat:"FAQ Answer",audience:["Recent Graduates","International Students"],urgency:"high",
+   angle:"Answer the internet's most-searched PGWP question with complete accuracy and employer-ready documentation guidance.",
+   fit:{ig:5,tk:5,li:3,bl:4,em:4,yt:5}},
+  {id:"t4",title:"Study Permit Refusals: The 5 Reasons Nobody Talks About",
+   feedIds:["f10"],cat:"Education",audience:["Prospective Students"],urgency:"high",
+   angle:"Turn a viral refusal story into actionable prevention — and show how BorderPass helps avoid each reason.",
+   fit:{ig:4,tk:5,li:2,bl:5,em:4,yt:5}},
+  {id:"t5",title:"Is a Canadian Degree Still Worth It? The Honest Answer.",
+   feedIds:["f9","f12"],cat:"Thought Leadership",audience:["Prospective Students"],urgency:"high",
+   angle:"Address student anxiety directly with CBIE enrollment data and a clear, specific perspective on value vs. risk.",
+   fit:{ig:4,tk:5,li:4,bl:5,em:4,yt:5}},
+  {id:"t6",title:"Your Employer Wants to Keep You. They Just Don't Know How.",
+   feedIds:["f11","f13"],cat:"Employer Education",audience:["International Graduates","Employers"],urgency:"medium",
+   angle:"Bridge the gap between willing employers and PGWP mechanics they've never encountered before.",
+   fit:{ig:3,tk:4,li:5,bl:5,em:5,yt:3}},
+  {id:"t7",title:"The International Graduate Talent Gap Is Here — What Employers Need to Know",
+   feedIds:["f12","f13"],cat:"Data Story",audience:["Employers","HR Leaders"],urgency:"high",
+   angle:"Turn CBIE's 11% enrollment drop into a concrete talent planning call-to-action for hiring teams.",
+   fit:{ig:2,tk:2,li:5,bl:5,em:5,yt:3}},
+  {id:"t8",title:"What No Competitor Is Telling International Students About Their Immigration",
+   feedIds:["f5","f6","f7"],cat:"Competitive Intel",audience:["Students","Employers"],urgency:"medium",
+   angle:"Map the gaps in competitor content and own every unoccupied position with accuracy and depth.",
+   fit:{ig:3,tk:3,li:5,bl:5,em:4,yt:3}},
+];
+
+// ─── GENERATED CONTENT ────────────────────────────────────────────────────────
+const GEN = {};
+
+GEN.t3 = {
+  ig:{type:"caption",
+    content:`Can you work in Canada while your PGWP is still being processed?
+
+Yes. But most people get this wrong.
+
+Here's what maintained status actually means:
+
+If you applied for your PGWP before your study permit expired, you may continue working under the same conditions as your previous permit.
+
+What trips people up:
+• Your employer may not understand the documentation
+• Your previous permit must have included work authorization
+• You need written proof you applied before your permit expired
+
+IRCC is currently processing PGWPs in 17 weeks. That's four months of uncertainty — unless you know your rights.
+
+If you're navigating this right now, save this post and send it to your HR contact.
+
+BorderPass helps international graduates understand exactly where they stand.
+
+#PGWP #PostGraduationWorkPermit #Canada #InternationalStudents #CanadaImmigration #WorkInCanada #StudyInCanada #MaintainedStatus #IRCC #InternationalGraduates #CanadaWork #StudyPermit #CanadaVisa #NewToCanada #ImmigrationCanada`,
+    note:"Post Tue–Thu 7–9am or 12–1pm EST. Pair with a carousel showing the 3 conditions visually. Dark blue bg, gold accent for high visual stop rate."},
+  tk:{type:"script",
+    hook:`"Your study permit just expired but your PGWP is still processing. Can you actually still work?"`,
+    body:`The answer is yes — but here's what most people get wrong.
+
+When you apply for your PGWP before your study permit expires, you enter what IRCC calls maintained status.
+
+That means you may keep doing whatever your previous permit allowed.
+
+If your study permit let you work 20 hours during school and full-time during breaks — those same conditions apply while you wait.
+
+But here's where it falls apart.
+
+Your employer has never heard of maintained status before. HR panics. Shifts get pulled. Job offers get rescinded.
+
+What you need to show them: your previous permit showing your work authorization, your IRCC application confirmation, and IRCC's official maintained status page.
+
+IRCC is taking 17 weeks for PGWPs right now.
+
+That's four months where this one piece of paper protects your job.`,
+    cta:"Follow for immigration updates that actually make sense. Link in bio to check your eligibility.",
+    broll:["IRCC website screen recording","Person at laptop, documents visible on desk","Clock graphic showing 17 weeks","Student in office setting with employer","Split screen: permit document + job offer letter"],
+    duration:"60s",formats:["TikTok","Reels","YouTube Shorts"]},
+  li:{type:"post",
+    content:`International graduates are losing work opportunities they're legally entitled to.
+
+Here's why — and it's not IRCC's fault.
+
+Most employers have never heard of maintained status. When a new hire's study permit expires while their PGWP is processing, HR panics. Shifts get cancelled. Job offers get rescinded.
+
+The facts:
+→ A graduate who applied for their PGWP before their study permit expired may continue working under the same conditions as their previous permit
+→ IRCC is currently averaging 17 weeks to process PGWPs
+→ The documentation to prove maintained status is straightforward — most HR teams just don't know to ask for it
+
+The gap is informational, not legal.
+
+Employers who understand immigration basics retain international talent at meaningfully higher rates. The ones who don't often lose candidates they spent months recruiting.
+
+BorderPass works with employers to close this gap. Happy to share our maintained status employer guide — drop a comment or message us.
+
+What's your experience navigating this with HR?`,
+    note:"Best posted Tue–Wed 8–10am EST. Tag relevant HR professional groups."},
+  bl:{type:"article",
+    seoTitle:"Can I Work in Canada While My PGWP Is Processing? (2026 Complete Guide)",
+    meta:"You may work in Canada while your Post-Graduation Work Permit is processing — under specific conditions. This guide explains maintained status, what your employer needs to know, and how to protect your work authorization.",
+    outline:[
+      "Introduction: The 17-week processing gap and why it matters",
+      "What is maintained status? A plain language explanation",
+      "The 3 conditions you must meet to qualify",
+      "What documentation to prepare — and how to present it to HR",
+      "What to do if your employer refuses to accept maintained status",
+      "When maintained status does NOT apply — know the exceptions",
+      "FAQ: Top 5 questions from Reddit answered accurately",
+      "After your PGWP arrives: confirming your new status",
+      "Resources: Official IRCC guidance and BorderPass support",
+    ],
+    intro:`If you're a recent international graduate in Canada, you've likely faced some version of this question: your study permit is about to expire, your PGWP application is submitted, and your employer is asking whether you can still come in to work.
+
+The short answer: you may be eligible to keep working under what IRCC calls "maintained status" — provided you applied before your study permit expired. But the longer answer involves mechanics that most employers have never encountered. This guide explains exactly how maintained status works, what you need to show HR, and what to do if they push back.`},
+  em:{type:"email",
+    subjectA:"Your permit expired. You may still work. Here's why.",
+    subjectB:"The 17-week gap: what every international graduate needs to know",
+    preview:"Maintained status explained — and exactly what to show your employer.",
+    body:`If your PGWP application is in and your study permit has expired, this message is for you.
+
+You may still work in Canada. Here's the short version.
+
+Maintained status allows you to continue working under the conditions of your previous permit while IRCC processes your PGWP application — provided you applied before your study permit expired.
+
+Current PGWP processing: 17 weeks on average.
+
+What your employer needs to see:
+• Your expired study permit (showing your previous work authorization)
+• Your IRCC application submission confirmation
+• IRCC's official maintained status guidance
+
+What to do if HR doesn't believe you:
+Share IRCC's maintained status page directly. If they're still uncertain, ask them to consult a regulated immigration consultant — or contact BorderPass and we'll help you navigate the conversation.
+
+[Check your maintained status eligibility →]
+
+The BorderPass Team`},
+  yt:{type:"script",
+    title:"Can You Work in Canada While Your PGWP Is Processing? Full 2026 Guide",
+    hook:`"IRCC is taking 17 weeks to process PGWPs right now. Your study permit might expire in that window. This video is for anyone who needs to know: can you still legally work in Canada?"`,
+    outline:[
+      "0:00 — The question and why it matters in 2026",
+      "1:30 — What maintained status is (and what it isn't)",
+      "4:00 — The 3 conditions you must meet",
+      "7:30 — The documentation package: what to prepare",
+      "11:00 — Real scenarios: what qualifies, what doesn't",
+      "15:30 — What to do if your employer refuses",
+      "19:00 — After your PGWP arrives: confirming your new status",
+      "22:00 — Summary, resources, and next steps",
+    ],
+    script_sample:`[INTRO — On camera, warm setting]
+Welcome back. If you found this because your study permit is about to expire and your PGWP still hasn't arrived — this video is exactly what you need.
+
+I'm going to walk you through something called maintained status, explain the three conditions you need to meet to qualify, and give you the exact documentation to show your employer.
+
+Let's get into it.
+
+[SECTION 1 — Screen share: IRCC processing times page]
+First, some context. IRCC is currently taking an average of 17 weeks to process Post-Graduation Work Permits. That's more than four months. For graduates whose study permits expire in that window, the question of work authorization becomes urgent fast.
+
+The good news: IRCC has a specific provision for this situation. It's called maintained status. And it's more powerful than most people realize...`}
+};
+
+GEN.t2 = {
+  ig:{type:"caption",
+    content:`Canada just extended its study permit cap through 2026.
+
+Here's what most applicants don't know yet:
+
+The new allocations prioritize graduate programs and co-op streams. If that's your path, you're in a better position than the headlines suggest.
+
+What to do this week:
+→ Confirm your school's DLI status and remaining allocation
+→ Apply before the spring intake surge — some schools are already at capacity
+→ Make sure your application file has zero document gaps
+
+The students who waited for more information are now applying after the students who acted.
+
+BorderPass helps you understand exactly where your application stands before you submit.
+
+#StudyInCanada #StudyPermit #CanadaStudentVisa #InternationalStudent #IRCC #CanadaImmigration #StudyAbroad #StudentVisa #CanadaEducation #PermitCap #2026 #InternationalStudents`,
+    note:"Use a carousel showing the 3 allocation changes visually. Dark blue bg, gold accent for high stop rate. Post Q1–Q2 while urgency is high."},
+  tk:{type:"script",
+    hook:`"Canada just extended the study permit cap into 2026 — and most students are reacting to the wrong part of the announcement."`,
+    body:`So IRCC confirmed the cap stays through 2026.
+
+But here's what the headlines aren't telling you.
+
+Not all schools are equally affected. Some still have room. Some don't.
+
+And the allocation now favors graduate programs and co-ops. If you're applying for a master's or a co-op stream, your position just got relatively stronger compared to standard undergrad applicants.
+
+The other thing: the cap doesn't automatically refuse your application. It means incomplete applications get deprioritized.
+
+The students who get permits are the ones with clean, complete files submitted early.
+
+The ones who don't usually had fixable gaps in their documentation.
+
+That's the part nobody's talking about.`,
+    cta:"Link in bio to check your eligibility before you submit.",
+    broll:["University campus aerial shot","IRCC website — cap announcement page","Map of Canada with provincial allocation highlights","Student reviewing documents at desk","Before/after comparison graphic"],
+    duration:"50s",formats:["TikTok","Reels","YouTube Shorts"]},
+  li:{type:"post",
+    content:`The study permit cap extension signals something important about Canada's immigration direction.
+
+IRCC's decision to maintain caps through 2026 isn't just an enrollment story. It's a structural signal for talent acquisition teams.
+
+CBIE's latest data: international student enrollment is down 11% — the first decline in 12 years.
+
+What this means in practice:
+→ The PGWP-eligible graduate pipeline is contracting, not growing
+→ Employer-supported immigration pathways are gaining relative value
+→ Early hiring relationships with campus international offices are becoming a competitive differentiator
+
+If your talent strategy still assumes pre-cap international student volumes, it's worth revisiting.
+
+BorderPass works with employers who want to get ahead of this shift. Happy to share our 2026 talent landscape brief — comment or message us directly.
+
+What's your read on the talent implications here?`,
+    note:"Midweek posting, 8–10am EST. Tag HR professional groups and university career offices."},
+  bl:{type:"article",
+    seoTitle:"Canada Study Permit Cap 2026: What Changed, Who's Affected, What to Do",
+    meta:"Canada extended its study permit cap through 2026 with new provincial allocations. Here's what changed, which programs are prioritized, and how to strengthen your application.",
+    outline:[
+      "What IRCC announced: the plain facts",
+      "How the new provincial allocation system works",
+      "Which programs are prioritized — and why",
+      "What this means for your school choice",
+      "How to build a cap-proof application",
+      "Common document gaps that get applications deprioritized",
+      "Timeline: when to apply for 2026 intake",
+      "FAQ: top questions from students this week",
+    ],
+    intro:`Canada's study permit cap isn't new. But the 2026 extension came with meaningful changes to how allocations are distributed — and which applicants benefit from them. If you're planning to study in Canada next year, here's what you need to understand before you apply.`},
+  em:{type:"email",
+    subjectA:"The study permit cap just changed. Here's your action plan.",
+    subjectB:"2026 cap extension: what changed and what to do this week",
+    preview:"New allocations are live — including which programs are now prioritized.",
+    body:`Canada's study permit cap has been extended through 2026.
+
+The headline sounds alarming. The details are more nuanced — and actually useful if you act on them.
+
+What changed:
+• Cap extended through 2026
+• New provincial allocations prioritize graduate programs and co-op streams
+• Several Ontario and BC schools are already at their intake limit for this cycle
+
+What this means for your application:
+If you're applying to a graduate program or a co-op stream, your position is relatively stronger than before. If you're applying for a standard undergraduate program, timing and application quality matter more than ever.
+
+Your action items this week:
+1. Confirm your school's current DLI status and remaining allocation
+2. Review your application for any document gaps
+3. Apply before the Q2 intake surge
+
+[Check your eligibility with BorderPass →]`},
+  yt:{type:"script",
+    title:"Canada Study Permit Cap 2026 Explained: What You Need to Know Before You Apply",
+    hook:`"Canada extended the study permit cap for 2026. Buried in the announcement is something that actually benefits certain applicants. Here's what the news articles didn't explain."`,
+    outline:[
+      "0:00 — What IRCC announced and what it actually means",
+      "2:30 — The new provincial allocation breakdown",
+      "6:00 — Which programs are prioritized and why",
+      "9:30 — How this affects your school choice",
+      "13:00 — Building a cap-proof application",
+      "17:00 — Timeline: when to apply for 2026",
+      "20:30 — Questions from the comment section answered",
+    ],
+    script_sample:`[INTRO — On camera]
+If you're watching this because you saw a headline about Canada extending its study permit cap and you're worried about your plans — stay with me, because the actual situation is more nuanced than the coverage is giving you.
+
+There are changes in this announcement that genuinely help certain applicants. There are also parts that are legitimately concerning. I'm going to walk through both.
+
+[SECTION 1 — Screen: IRCC announcement page]
+Let's start with what IRCC actually said. The cap — which was introduced in 2024 — is being maintained through 2026. That part is accurate. But here's the part most articles glossed over...`}
+};
+
+// ─── FALLBACK CONTENT GENERATOR ───────────────────────────────────────────────
+function genFallback(topic, ch) {
+  const t = topic;
+  return {
+    ig:{type:"caption",content:`${t.title}\n\n${t.angle}\n\nThis matters for ${t.audience.join(" and ")}.\n\nSave this post and follow BorderPass for weekly immigration updates that are actually clear.\n\n#CanadaImmigration #IRCC #InternationalStudents #CanadaVisa #StudyInCanada #WorkInCanada #NewToCanada #BorderPass`,note:"Pair with a branded static or carousel template."},
+    tk:{type:"script",hook:`"${t.title.split(":")[0]} — here's what nobody's explaining clearly."`,body:`${t.angle}\n\nThis is one of the more significant immigration updates right now — and most people are finding out about it too late.\n\nBorderPass breaks down exactly what this means for your situation.`,cta:"Follow for immigration updates that actually make sense. Link in bio.",broll:["IRCC website","Student at laptop","Canadian flag","Immigration documents","Person reviewing documents"],duration:"45s",formats:["TikTok","Reels","YouTube Shorts"]},
+    li:{type:"post",content:`${t.title}\n\nThis update has direct implications for ${t.audience.join(" and ")}.\n\n${t.angle}\n\nBorderPass is tracking this closely. Happy to share more detail or discuss what it means for your specific situation — drop a comment or message us directly.\n\nWhat's your take on this?`,note:"Midweek posting, 8–10am EST."},
+    bl:{type:"article",seoTitle:`${t.title} — 2026 Complete Guide`,meta:`${t.angle} This guide covers what changed, who's affected, and what to do.`,outline:["Introduction","What changed and when","Who is affected and how","What this means for your application","Steps to take now","Frequently asked questions","Resources"],intro:`${t.angle}\n\nHere's what you need to know before you apply or make any decisions.`},
+    em:{type:"email",subjectA:t.title,subjectB:`Update: ${t.title.split(":")[0]}`,preview:t.angle,body:`${t.title}\n\n${t.angle}\n\nThis is one of the more significant immigration updates of the year — and the details matter more than the headline.\n\nBorderPass is here to help you understand exactly what this means for your situation.\n\n[Check your eligibility →]\n\nThe BorderPass Team`},
+    yt:{type:"script",title:`${t.title} — Full Explanation`,hook:`"${t.angle} Here's what the headlines got wrong."`,outline:["Introduction","The key facts","What this means for your situation","Practical next steps","Questions answered"],script_sample:`[INTRO — On camera]\nToday we're breaking down ${t.title}.\n\nI'm going to give you the facts, explain what they actually mean for your situation, and tell you exactly what to do next.\n\nLet's get into it.`},
+  }[ch] || null;
+}
+
+function getContent(topicId, ch) {
+  if (GEN[topicId]?.[ch]) return GEN[topicId][ch];
+  const topic = TOPICS.find(t => t.id === topicId);
+  return topic ? genFallback(topic, ch) : null;
+}
+
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
+const CATS = [{id:"ircc",label:"IRCC & Government",color:C.b8},{id:"competitor",label:"Competitors",color:C.r8},{id:"ugc",label:"Social UGC",color:C.g8},{id:"industry",label:"Industry News",color:C.gr8}];
+const CHANNELS = [{id:"ig",label:"Instagram",icon:"📸"},{id:"tk",label:"TikTok",icon:"🎵"},{id:"li",label:"LinkedIn",icon:"💼"},{id:"bl",label:"Blog",icon:"✍️"},{id:"em",label:"Email",icon:"📧"},{id:"yt",label:"YouTube",icon:"▶️"}];
+const TABS = [{id:"feed",label:"Intelligence Feed",icon:"📡"},{id:"topics",label:"Topic Studio",icon:"💡"},{id:"studio",label:"Content Studio",icon:"✏️"},{id:"templates",label:"Post Templates",icon:"🖼️"},{id:"scripts",label:"Video Scripts",icon:"🎬"}];
+const URGENCY_COLORS = {high:[C.r1,"#9B1C1C"],medium:[C.g1,C.g8],low:[C.n2,C.n6]};
+
+// ─── LOGO ─────────────────────────────────────────────────────────────────────
+function LogoMark({dark=false,size=28}) {
+  const fill = dark ? C.wh : C.b8;
+  return (
+    <svg width={size*3.2} height={size*0.7} viewBox="0 0 96 21" fill="none">
+      <rect x="0" y="3" width="12" height="15" rx="3" fill={fill}/>
+      <ellipse cx="22" cy="10.5" rx="7" ry="7.5" fill={fill}/>
+      <path d="M32 3 L44 3 L40 18 L36 18 Z" fill={fill}/>
+      <text x="50" y="15" fontFamily="'Crimson Pro',Georgia,serif" fontWeight="600" fontSize="14" fill={fill} letterSpacing="-0.3">Borderpass</text>
+    </svg>
+  );
+}
+
+// ─── FEED CARD ────────────────────────────────────────────────────────────────
+function FeedCard({item, onAddTopic, added}) {
+  const cat = CATS.find(c=>c.id===item.cat);
+  const [urg_bg, urg_text] = URGENCY_COLORS[item.urgency];
+  return (
+    <div style={{background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:16,padding:"18px 20px",display:"flex",flexDirection:"column",gap:10,fontFamily:C.db}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:8}}>
+        <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+          <span style={{background:cat.color,color:C.wh,borderRadius:999,padding:"2px 10px",fontSize:11,fontWeight:600,letterSpacing:.4}}>{cat.label}</span>
+          {item.urgency!=="low" && <span style={{background:urg_bg,color:urg_text,borderRadius:999,padding:"2px 10px",fontSize:11,fontWeight:600,letterSpacing:.4}}>{item.urgency.toUpperCase()}</span>}
+        </div>
+        <span style={{color:C.n5,fontSize:12,whiteSpace:"nowrap"}}>{item.date}</span>
+      </div>
+      <div style={{fontFamily:C.dp,fontSize:17,lineHeight:1.35,color:C.n8,fontWeight:600}}>{item.title}</div>
+      <p style={{fontSize:13.5,color:C.n7,lineHeight:1.55,margin:0}}>{item.summary}</p>
+      <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+        {item.tags.map(t=><span key={t} style={{background:C.b1,color:C.b8,borderRadius:999,padding:"2px 9px",fontSize:11,fontWeight:500}}>{t}</span>)}
+      </div>
+      <div style={{display:"flex",gap:8,marginTop:4}}>
+        <a href={item.url} target="_blank" rel="noreferrer" style={{color:C.b6,fontSize:12,fontWeight:500,textDecoration:"none",flex:1}}>View source →</a>
+        <button onClick={()=>onAddTopic(item.id)} style={{background:added?C.gr1:C.b8,color:added?C.gr8:C.wh,border:"none",borderRadius:999,padding:"5px 14px",fontSize:12,fontWeight:600,cursor:"pointer",transition:"all .15s"}}>
+          {added?"✓ Added":"+ Use as Topic"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─── TOPIC CARD ───────────────────────────────────────────────────────────────
+function TopicCard({topic, selected, onSelect}) {
+  const [urg_bg, urg_text] = URGENCY_COLORS[topic.urgency];
+  const fitEntries = Object.entries(topic.fit);
+  return (
+    <div onClick={()=>onSelect(topic.id)} style={{background:selected?C.b1:C.bwh,border:`2px solid ${selected?C.b8:C.n4}`,borderRadius:16,padding:"18px 20px",cursor:"pointer",transition:"all .15s",fontFamily:C.db}}>
+      <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap"}}>
+        <span style={{background:C.g1,color:C.g8,borderRadius:999,padding:"2px 10px",fontSize:11,fontWeight:600}}>{topic.cat}</span>
+        <span style={{background:urg_bg,color:urg_text,borderRadius:999,padding:"2px 10px",fontSize:11,fontWeight:600}}>{topic.urgency.toUpperCase()}</span>
+      </div>
+      <div style={{fontFamily:C.dp,fontSize:17,lineHeight:1.35,color:C.n8,fontWeight:600,marginBottom:8}}>{topic.title}</div>
+      <p style={{fontSize:13,color:C.n6,lineHeight:1.5,margin:"0 0 12px"}}>{topic.angle}</p>
+      <div style={{fontSize:12,color:C.n6,marginBottom:6}}>Audience: <span style={{color:C.n7,fontWeight:500}}>{topic.audience.join(", ")}</span></div>
+      <div style={{fontSize:11,color:C.n6,marginBottom:4,fontWeight:600,letterSpacing:.4}}>CHANNEL FIT</div>
+      <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+        {fitEntries.map(([ch,score])=>{
+          const chObj = CHANNELS.find(c=>c.id===ch);
+          return (
+            <div key={ch} style={{display:"flex",alignItems:"center",gap:4}}>
+              <span style={{fontSize:11,color:C.n6}}>{chObj?.icon}</span>
+              <div style={{display:"flex",gap:2}}>
+                {[1,2,3,4,5].map(i=><div key={i} style={{width:6,height:6,borderRadius:2,background:i<=score?C.b8:C.n4}}/>)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── CONTENT DISPLAY ─────────────────────────────────────────────────────────
+function ContentDisplay({topicId, channel, onCopy, copied}) {
+  const content = getContent(topicId, channel);
+  const topic = TOPICS.find(t=>t.id===topicId);
+  if (!content || !topic) return <div style={{padding:40,textAlign:"center",color:C.n5,fontFamily:C.db}}>Select a topic and channel to generate content.</div>;
+
+  const copyText = () => {
+    let text = "";
+    if (content.type==="caption") text = content.content;
+    else if (content.type==="script") text = `HOOK:\n${content.hook}\n\nBODY:\n${content.body}\n\nCTA:\n${content.cta}`;
+    else if (content.type==="post") text = content.content;
+    else if (content.type==="article") text = `SEO TITLE: ${content.seoTitle}\n\nMETA: ${content.meta}\n\nINTRO:\n${content.intro}\n\nOUTLINE:\n${content.outline.map((o,i)=>`${i+1}. ${o}`).join("\n")}`;
+    else if (content.type==="email") text = `SUBJECT A: ${content.subjectA}\nSUBJECT B: ${content.subjectB}\nPREVIEW: ${content.preview}\n\n${content.body}`;
+    onCopy(text);
+  };
+
+  return (
+    <div style={{display:"flex",flexDirection:"column",gap:0,height:"100%",fontFamily:C.db}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 20px",borderBottom:`1px solid ${C.n4}`,background:C.n2,borderRadius:"12px 12px 0 0"}}>
+        <div>
+          <span style={{fontWeight:600,color:C.n8,fontSize:14}}>{CHANNELS.find(c=>c.id===channel)?.icon} {CHANNELS.find(c=>c.id===channel)?.label} Output</span>
+          <span style={{color:C.n5,fontSize:12,marginLeft:8}}>— {topic.title.substring(0,45)}...</span>
+        </div>
+        <button onClick={copyText} style={{background:copied?C.gr8:C.b8,color:C.wh,border:"none",borderRadius:999,padding:"6px 16px",fontSize:12,fontWeight:600,cursor:"pointer",transition:"all .2s"}}>
+          {copied?"✓ Copied!":"Copy All"}
+        </button>
+      </div>
+      <div style={{padding:20,overflowY:"auto",flex:1,background:C.bwh,borderRadius:"0 0 12px 12px"}}>
+        {content.type==="caption" && (
+          <div>
+            <pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:14,color:C.n7,lineHeight:1.65,margin:0}}>{content.content}</pre>
+            {content.note && <div style={{marginTop:16,background:C.g1,borderRadius:10,padding:"10px 14px",fontSize:12,color:C.g8,fontWeight:500}}>💡 {content.note}</div>}
+          </div>
+        )}
+        {content.type==="script" && (
+          <div style={{display:"flex",flexDirection:"column",gap:16}}>
+            <Section label="HOOK (0–3s)" color={C.r1} textColor="#9B1C1C">{content.hook}</Section>
+            <Section label="BODY SCRIPT" color={C.b1} textColor={C.b8}><pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:13.5,lineHeight:1.65,margin:0,color:C.n7}}>{content.body}</pre></Section>
+            <Section label="CTA" color={C.g1} textColor={C.g8}>{content.cta}</Section>
+            <Section label={`B-ROLL DIRECTION (${content.duration})`} color={C.n2} textColor={C.n7}>
+              <ul style={{margin:0,paddingLeft:18}}>
+                {content.broll.map((b,i)=><li key={i} style={{fontSize:13,color:C.n6,lineHeight:1.6}}>{b}</li>)}
+              </ul>
+              <div style={{marginTop:8,fontSize:12,color:C.n5}}>Formats: {content.formats?.join(", ")}</div>
+            </Section>
+          </div>
+        )}
+        {content.type==="post" && (
+          <div>
+            <pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:14,color:C.n7,lineHeight:1.7,margin:0}}>{content.content}</pre>
+            {content.note && <div style={{marginTop:16,background:C.g1,borderRadius:10,padding:"10px 14px",fontSize:12,color:C.g8,fontWeight:500}}>💡 {content.note}</div>}
+          </div>
+        )}
+        {content.type==="article" && (
+          <div style={{display:"flex",flexDirection:"column",gap:14}}>
+            <Section label="SEO TITLE" color={C.b1} textColor={C.b8}><span style={{fontSize:15,fontWeight:600,color:C.n8}}>{content.seoTitle}</span></Section>
+            <Section label="META DESCRIPTION" color={C.n2} textColor={C.n6}>{content.meta}</Section>
+            <Section label="INTRO" color={C.g1} textColor={C.n7}><pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:13.5,lineHeight:1.65,margin:0}}>{content.intro}</pre></Section>
+            <Section label="ARTICLE OUTLINE" color={C.b1} textColor={C.b8}>
+              {content.outline.map((o,i)=><div key={i} style={{display:"flex",gap:10,padding:"6px 0",borderBottom:`1px solid ${C.n4}`}}><span style={{color:C.b6,fontWeight:600,minWidth:20,fontSize:13}}>{i+1}.</span><span style={{fontSize:13,color:C.n7,lineHeight:1.5}}>{o}</span></div>)}
+            </Section>
+          </div>
+        )}
+        {content.type==="email" && (
+          <div style={{display:"flex",flexDirection:"column",gap:14}}>
+            <Section label="SUBJECT LINE A/B" color={C.r1} textColor="#9B1C1C">
+              <div style={{fontSize:14,fontWeight:600,color:C.n8,marginBottom:4}}>A: {content.subjectA}</div>
+              <div style={{fontSize:14,fontWeight:600,color:C.n8}}>B: {content.subjectB}</div>
+              <div style={{fontSize:12,color:C.n5,marginTop:6}}>Preview: {content.preview}</div>
+            </Section>
+            <Section label="EMAIL BODY" color={C.bwh} textColor={C.n7}><pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:13.5,lineHeight:1.7,margin:0,color:C.n7}}>{content.body}</pre></Section>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Section({label,color,textColor,children}) {
+  return (
+    <div style={{borderRadius:10,overflow:"hidden",border:`1px solid ${C.n4}`}}>
+      <div style={{background:color,padding:"7px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,color:textColor}}>{label}</div>
+      <div style={{padding:"12px 14px",background:C.bwh,fontSize:13.5,color:C.n7,lineHeight:1.6}}>{children}</div>
+    </div>
+  );
+}
+
+// ─── POST TEMPLATE MOCKUPS ────────────────────────────────────────────────────
+function InstagramSquare({topic}) {
+  return (
+    <div style={{width:360,height:360,background:C.b9,borderRadius:12,padding:28,display:"flex",flexDirection:"column",justifyContent:"space-between",position:"relative",overflow:"hidden",fontFamily:C.db}}>
+      <div style={{position:"absolute",top:-40,right:-40,width:160,height:160,borderRadius:"50%",background:C.b8,opacity:.35}}/>
+      <div style={{position:"absolute",bottom:-30,left:-30,width:100,height:100,borderRadius:"50%",background:C.g9,opacity:.2}}/>
+      <div style={{position:"relative"}}>
+        <span style={{background:C.g6,color:C.wh,borderRadius:999,padding:"3px 12px",fontSize:10,fontWeight:700,letterSpacing:.6}}>{topic.cat.toUpperCase()}</span>
+      </div>
+      <div style={{position:"relative"}}>
+        <div style={{width:32,height:2,background:C.g6,marginBottom:12,borderRadius:1}}/>
+        <div style={{fontFamily:C.dp,color:C.wh,fontSize:21,lineHeight:1.3,fontWeight:400,marginBottom:10}}>{topic.title}</div>
+        <p style={{color:C.b2,fontSize:12,lineHeight:1.5,margin:0}}>{topic.audience.join(" · ")}</p>
+      </div>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",position:"relative"}}>
+        <span style={{color:C.g4,fontSize:11,fontWeight:600,letterSpacing:.3}}>borderpass.ca</span>
+        <LogoMark dark size={14}/>
+      </div>
+    </div>
+  );
+}
+
+function TikTokTemplate({topic}) {
+  return (
+    <div style={{width:200,height:356,background:`linear-gradient(160deg, ${C.b9} 0%, ${C.n8} 100%)`,borderRadius:12,padding:20,display:"flex",flexDirection:"column",justifyContent:"space-between",position:"relative",overflow:"hidden",fontFamily:C.db}}>
+      <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,backgroundImage:`radial-gradient(ellipse at 80% 20%, ${C.b6}33 0%, transparent 60%)`,pointerEvents:"none"}}/>
+      <div style={{position:"relative",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        <span style={{background:C.r8,color:C.wh,borderRadius:4,padding:"2px 8px",fontSize:9,fontWeight:700,letterSpacing:.5}}>LIVE TOPIC</span>
+        <span style={{color:C.n5,fontSize:9}}>borderpass.ca</span>
+      </div>
+      <div style={{position:"relative",flex:1,display:"flex",flexDirection:"column",justifyContent:"center",padding:"16px 0"}}>
+        <div style={{fontFamily:C.dp,color:C.wh,fontSize:18,lineHeight:1.3,fontWeight:600,marginBottom:10}}>{topic.title.split(":")[0]}</div>
+        <p style={{color:C.b2,fontSize:11,lineHeight:1.5,margin:0}}>{topic.angle.substring(0,80)}...</p>
+      </div>
+      <div style={{position:"relative"}}>
+        <div style={{background:C.g6,borderRadius:999,padding:"7px 14px",textAlign:"center",fontSize:11,fontWeight:700,color:C.wh,marginBottom:8}}>Watch now ↗</div>
+        <div style={{display:"flex",gap:4}}>
+          {[0,1,2].map(i=><div key={i} style={{flex:1,height:2,borderRadius:1,background:i===0?C.g6:C.n6}}/>)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInTemplate({topic}) {
+  return (
+    <div style={{width:440,height:231,background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:12,overflow:"hidden",fontFamily:C.db,display:"flex",flexDirection:"column"}}>
+      <div style={{background:C.b8,height:4}}/>
+      <div style={{padding:"16px 20px",display:"flex",gap:12,alignItems:"flex-start",flex:1}}>
+        <div style={{width:36,height:36,borderRadius:10,background:C.b8,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+          <LogoMark dark size={10}/>
+        </div>
+        <div style={{flex:1}}>
+          <div style={{fontWeight:700,fontSize:13,color:C.n8}}>BorderPass</div>
+          <div style={{fontSize:11,color:C.n5,marginBottom:10}}>Immigration platform for international students and employers</div>
+          <div style={{fontFamily:C.dp,fontSize:17,color:C.n8,lineHeight:1.3,marginBottom:8}}>{topic.title}</div>
+          <p style={{fontSize:12,color:C.n7,lineHeight:1.5,margin:0}}>{topic.angle.substring(0,100)}...</p>
+        </div>
+      </div>
+      <div style={{borderTop:`1px solid ${C.n4}`,padding:"8px 20px",display:"flex",gap:16}}>
+        {["👍 Like","💬 Comment","↗ Share"].map(a=><span key={a} style={{fontSize:12,color:C.n6,fontWeight:500,cursor:"pointer"}}>{a}</span>)}
+      </div>
+    </div>
+  );
+}
+
+function AnimatedTemplate({topic}) {
+  const words = topic.title.split(" ");
+  return (
+    <div style={{width:360,height:360,background:C.bk,borderRadius:12,padding:32,display:"flex",flexDirection:"column",justifyContent:"center",position:"relative",overflow:"hidden",fontFamily:C.db}}>
+      <style>{`
+        @keyframes slideUp { from {opacity:0;transform:translateY(20px)} to {opacity:1;transform:translateY(0)} }
+        @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.7} }
+        @keyframes scanline { from{top:-10%} to{top:110%} }
+        .bp-w1{animation:slideUp .5s ease .1s both}
+        .bp-w2{animation:slideUp .5s ease .4s both}
+        .bp-w3{animation:slideUp .5s ease .7s both}
+        .bp-accent{animation:pulse 3s ease-in-out infinite}
+        .bp-scan{animation:scanline 4s linear infinite}
+      `}</style>
+      <div className="bp-accent" style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:`linear-gradient(135deg, ${C.b9}AA 0%, ${C.bk} 100%)`,pointerEvents:"none"}}/>
+      <div className="bp-scan" style={{position:"absolute",left:0,right:0,height:"1px",background:`${C.g6}44`,pointerEvents:"none"}}/>
+      <div style={{position:"relative"}}>
+        <div className="bp-w1" style={{color:C.g6,fontSize:11,fontWeight:700,letterSpacing:2,marginBottom:14}}>BREAKING · IMMIGRATION UPDATE</div>
+        <div className="bp-w2" style={{fontFamily:C.dp,color:C.wh,fontSize:24,lineHeight:1.25,fontWeight:600,marginBottom:16}}>{words.slice(0,6).join(" ")}<span style={{color:C.g6}}> {words.slice(6).join(" ")}</span></div>
+        <div className="bp-w3" style={{color:C.b2,fontSize:13,lineHeight:1.5}}>{topic.angle.substring(0,80)}...</div>
+        <div className="bp-w3" style={{marginTop:20,display:"flex",gap:8,alignItems:"center"}}>
+          <div style={{width:28,height:28,borderRadius:8,background:C.b8,display:"flex",alignItems:"center",justifyContent:"center"}}><LogoMark dark size={8}/></div>
+          <span style={{color:C.n5,fontSize:12}}>borderpass.ca</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StoryTemplate({topic}) {
+  return (
+    <div style={{width:200,height:356,background:`linear-gradient(180deg, ${C.b9} 0%, ${C.g9} 100%)`,borderRadius:12,padding:20,display:"flex",flexDirection:"column",fontFamily:C.db,position:"relative",overflow:"hidden"}}>
+      <div style={{position:"absolute",top:"30%",left:"-20%",width:"140%",height:200,background:C.b8,opacity:.25,borderRadius:"50%",transform:"rotate(-15deg)"}}/>
+      <div style={{position:"relative",marginBottom:"auto"}}>
+        <div style={{fontWeight:700,fontSize:11,color:C.g4,letterSpacing:1,marginBottom:8}}>BORDERPASS</div>
+        <div style={{width:24,height:2,background:C.g6,borderRadius:1,marginBottom:16}}/>
+        <div style={{fontFamily:C.dp,color:C.wh,fontSize:20,lineHeight:1.3,fontWeight:400}}>{topic.title.split(":")[0]}</div>
+      </div>
+      <div style={{position:"relative"}}>
+        <p style={{color:C.b2,fontSize:11,lineHeight:1.55,margin:"0 0 16px"}}>{topic.angle.substring(0,90)}...</p>
+        <div style={{background:`${C.g6}22`,border:`1px solid ${C.g6}`,borderRadius:999,padding:"8px 16px",textAlign:"center",fontSize:12,fontWeight:700,color:C.g4}}>Swipe up to learn more</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── MAIN APP ─────────────────────────────────────────────────────────────────
+function BorderPassContentCreator() {
+  const [tab, setTab] = useState("feed");
+  const [feedFilter, setFeedFilter] = useState("ircc");
+  const [addedTopics, setAddedTopics] = useState(new Set());
+  const [selectedTopicId, setSelectedTopicId] = useState("t3");
+  const [channel, setChannel] = useState("ig");
+  const [copied, setCopied] = useState(false);
+  const [liveFeed, setLiveFeed] = useState([]);
+  const [lastUpdated, setLastUpdated] = useState(null);
+  const [feedLoading, setFeedLoading] = useState(true);
+  const [tmplFormat, setTmplFormat] = useState("square");
+  const [tmplTopic, setTmplTopic] = useState("t2");
+  const [scriptTopic, setScriptTopic] = useState("t3");
+  const [scriptFormat, setScriptFormat] = useState("tk");
+
+  useEffect(()=>{
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap";
+    document.head.appendChild(link);
+  },[]);
+
+  useEffect(()=>{
+    fetch('./feed_data.json')
+      .then(r=>{ if(!r.ok) throw new Error('not found'); return r.json(); })
+      .then(data=>{
+        if(data.items && data.items.length > 0){
+          setLiveFeed(data.items);
+          setLastUpdated(data.updated || null);
+        }
+      })
+      .catch(()=>{})
+      .finally(()=>setFeedLoading(false));
+  },[]);
+
+  const handleCopy = useCallback((text)=>{
+    navigator.clipboard.writeText(text).catch(()=>{});
+    setCopied(true);
+    setTimeout(()=>setCopied(false),2200);
+  },[]);
+
+  const activeFeedData = liveFeed.length > 0 ? liveFeed : FEED;
+  const filteredFeed = activeFeedData.filter(f=>f.cat===feedFilter);
+  const selectedTopic = TOPICS.find(t=>t.id===selectedTopicId);
+  const scriptContent = getContent(scriptTopic, scriptFormat);
+  const templateTopic = TOPICS.find(t=>t.id===tmplTopic);
+
+  return (
+    <div style={{minHeight:"100vh",background:C.wh,fontFamily:C.db,color:C.n8}}>
+      {/* HEADER */}
+      <div style={{background:C.b9,padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:52,position:"sticky",top:0,zIndex:100,boxShadow:"0 2px 12px #0004"}}>
+        <div style={{display:"flex",alignItems:"center",gap:16}}>
+          <LogoMark dark size={18}/>
+          <div style={{width:1,height:20,background:`${C.wh}30`}}/>
+          <span style={{color:C.b2,fontSize:13,fontWeight:500,letterSpacing:.3}}>Content Creator</span>
+          <span style={{background:`${C.g6}22`,border:`1px solid ${C.g6}44`,color:C.g4,borderRadius:999,padding:"2px 10px",fontSize:10,fontWeight:700,letterSpacing:.5}}>BETA</span>
+        </div>
+        <div style={{display:"flex",gap:10,alignItems:"center"}}>
+          {lastUpdated && <span style={{color:C.b4,fontSize:11}}>Updated {lastUpdated}</span>}
+          {!lastUpdated && !feedLoading && <span style={{color:C.n5,fontSize:11}}>Seed data — deploy to enable live updates</span>}
+          <div style={{display:"flex",gap:5,alignItems:"center"}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:liveFeed.length>0?"#4ade80":"#facc15",animation:"bpPulse 2s infinite"}}/>
+            <span style={{color:C.b4,fontSize:11}}>{liveFeed.length>0?`${liveFeed.length} live items`:`${FEED.length} seed items`}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* NAV TABS */}
+      <div style={{background:C.bwh,borderBottom:`1px solid ${C.n4}`,padding:"0 24px",display:"flex",gap:0,overflowX:"auto"}}>
+        {TABS.map(t=>(
+          <button key={t.id} onClick={()=>setTab(t.id)} style={{background:"none",border:"none",borderBottom:`3px solid ${tab===t.id?C.b8:"transparent"}`,padding:"14px 18px",fontSize:13,fontWeight:tab===t.id?600:400,color:tab===t.id?C.b8:C.n6,cursor:"pointer",whiteSpace:"nowrap",transition:"all .15s",display:"flex",gap:6,alignItems:"center"}}>
+            <span style={{fontSize:14}}>{t.icon}</span>{t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* CONTENT AREA */}
+      <div style={{maxWidth:1200,margin:"0 auto",padding:"24px 24px 48px"}}>
+
+        {/* ── FEED TAB ──────────────────────────────────────────────── */}
+        {tab==="feed" && (
+          <div>
+            <div style={{marginBottom:20}}>
+              <h1 style={{fontFamily:C.dp,fontSize:28,margin:"0 0 6px",color:C.b9}}>Intelligence Feed</h1>
+              <p style={{fontSize:14,color:C.n6,margin:0}}>Monitored sources: IRCC, competitor brands, social UGC, and industry news. Updated weekly.</p>
+            </div>
+            <div style={{display:"flex",gap:8,marginBottom:20,flexWrap:"wrap"}}>
+              {CATS.map(c=>(
+                <button key={c.id} onClick={()=>setFeedFilter(c.id)} style={{background:feedFilter===c.id?c.color:C.bwh,color:feedFilter===c.id?C.wh:C.n7,border:`1px solid ${feedFilter===c.id?c.color:C.n4}`,borderRadius:999,padding:"7px 16px",fontSize:13,fontWeight:feedFilter===c.id?600:400,cursor:"pointer",transition:"all .15s"}}>
+                  {c.label} <span style={{opacity:.7,fontSize:12}}>({FEED.filter(f=>f.cat===c.id).length})</span>
+                </button>
+              ))}
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:16}}>
+              {filteredFeed.map(item=>(
+                <FeedCard key={item.id} item={item} added={addedTopics.has(item.id)} onAddTopic={id=>{setAddedTopics(s=>{const n=new Set(s);n.add(id);return n;});}}/>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── TOPICS TAB ────────────────────────────────────────────── */}
+        {tab==="topics" && (
+          <div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20}}>
+              <div>
+                <h1 style={{fontFamily:C.dp,fontSize:28,margin:"0 0 6px",color:C.b9}}>Topic Studio</h1>
+                <p style={{fontSize:14,color:C.n6,margin:0}}>Auto-generated content topics from your intelligence feed, scored by channel fit.</p>
+              </div>
+              <button onClick={()=>setTab("studio")} style={{background:C.b8,color:C.wh,border:"none",borderRadius:999,padding:"10px 20px",fontSize:13,fontWeight:600,cursor:"pointer"}}>
+                Open Content Studio →
+              </button>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(360px,1fr))",gap:16}}>
+              {TOPICS.map(t=>(
+                <TopicCard key={t.id} topic={t} selected={selectedTopicId===t.id} onSelect={id=>{setSelectedTopicId(id);}}/>
+              ))}
+            </div>
+            {selectedTopicId && (
+              <div style={{marginTop:24,background:C.b1,borderRadius:16,padding:"16px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div>
+                  <div style={{fontWeight:600,color:C.b8,marginBottom:2}}>"{TOPICS.find(t=>t.id===selectedTopicId)?.title}"</div>
+                  <div style={{fontSize:13,color:C.b6}}>Selected — open Content Studio to generate copy for any channel.</div>
+                </div>
+                <button onClick={()=>setTab("studio")} style={{background:C.b8,color:C.wh,border:"none",borderRadius:999,padding:"10px 20px",fontSize:13,fontWeight:600,cursor:"pointer",whiteSpace:"nowrap"}}>
+                  Generate Content →
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── CONTENT STUDIO TAB ───────────────────────────────────── */}
+        {tab==="studio" && (
+          <div>
+            <div style={{marginBottom:20}}>
+              <h1 style={{fontFamily:C.dp,fontSize:28,margin:"0 0 6px",color:C.b9}}>Content Studio</h1>
+              <p style={{fontSize:14,color:C.n6,margin:0}}>Select a topic and channel to generate ready-to-publish content.</p>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"280px 1fr",gap:16,alignItems:"start"}}>
+              {/* Left panel */}
+              <div style={{display:"flex",flexDirection:"column",gap:12}}>
+                <div style={{background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:12,overflow:"hidden"}}>
+                  <div style={{background:C.n2,padding:"10px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,color:C.n6}}>TOPIC</div>
+                  {TOPICS.map(t=>(
+                    <div key={t.id} onClick={()=>setSelectedTopicId(t.id)} style={{padding:"10px 14px",cursor:"pointer",background:selectedTopicId===t.id?C.b1:"transparent",borderBottom:`1px solid ${C.n4}`,transition:"background .12s"}}>
+                      <div style={{fontSize:12,fontWeight:selectedTopicId===t.id?600:400,color:selectedTopicId===t.id?C.b8:C.n7,lineHeight:1.4}}>{t.title.substring(0,52)}{t.title.length>52?"…":""}</div>
+                      <div style={{fontSize:10,color:C.n5,marginTop:2}}>{t.cat} · {t.urgency}</div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:12,overflow:"hidden"}}>
+                  <div style={{background:C.n2,padding:"10px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,color:C.n6}}>CHANNEL</div>
+                  {CHANNELS.map(c=>(
+                    <div key={c.id} onClick={()=>setChannel(c.id)} style={{padding:"10px 14px",cursor:"pointer",background:channel===c.id?C.b1:"transparent",borderBottom:`1px solid ${C.n4}`,display:"flex",alignItems:"center",gap:8,transition:"background .12s"}}>
+                      <span style={{fontSize:16}}>{c.icon}</span>
+                      <span style={{fontSize:13,fontWeight:channel===c.id?600:400,color:channel===c.id?C.b8:C.n7}}>{c.label}</span>
+                      {selectedTopicId && (
+                        <div style={{marginLeft:"auto",display:"flex",gap:2}}>
+                          {[1,2,3,4,5].map(i=><div key={i} style={{width:5,height:5,borderRadius:1,background:i<=(TOPICS.find(t=>t.id===selectedTopicId)?.fit?.[c.id]||0)?C.b8:C.n4}}/>)}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Right panel */}
+              <div style={{border:`1px solid ${C.n4}`,borderRadius:12,overflow:"hidden",minHeight:520}}>
+                <ContentDisplay topicId={selectedTopicId} channel={channel} onCopy={handleCopy} copied={copied}/>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── POST TEMPLATES TAB ───────────────────────────────────── */}
+        {tab==="templates" && (
+          <div>
+            <div style={{marginBottom:20}}>
+              <h1 style={{fontFamily:C.dp,fontSize:28,margin:"0 0 6px",color:C.b9}}>Post Templates</h1>
+              <p style={{fontSize:14,color:C.n6,margin:0}}>Branded visual templates for every channel. Static, story, and animated formats.</p>
+            </div>
+            <div style={{display:"flex",gap:16,marginBottom:24,flexWrap:"wrap"}}>
+              <div>
+                <div style={{fontSize:11,fontWeight:700,letterSpacing:.5,color:C.n6,marginBottom:8}}>FORMAT</div>
+                <div style={{display:"flex",gap:8}}>
+                  {[{id:"square",label:"Instagram Square"},{id:"story",label:"Story / Reels"},{id:"tiktok",label:"TikTok"},{id:"linkedin",label:"LinkedIn"},{id:"animated",label:"Animated ✨"}].map(f=>(
+                    <button key={f.id} onClick={()=>setTmplFormat(f.id)} style={{background:tmplFormat===f.id?C.b8:C.bwh,color:tmplFormat===f.id?C.wh:C.n7,border:`1px solid ${tmplFormat===f.id?C.b8:C.n4}`,borderRadius:999,padding:"6px 14px",fontSize:12,fontWeight:tmplFormat===f.id?600:400,cursor:"pointer",transition:"all .15s"}}>{f.label}</button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div style={{fontSize:11,fontWeight:700,letterSpacing:.5,color:C.n6,marginBottom:8}}>TOPIC</div>
+                <select value={tmplTopic} onChange={e=>setTmplTopic(e.target.value)} style={{border:`1px solid ${C.n4}`,borderRadius:8,padding:"7px 12px",fontSize:13,color:C.n7,background:C.bwh,outline:"none",maxWidth:300}}>
+                  {TOPICS.map(t=><option key={t.id} value={t.id}>{t.title.substring(0,50)}…</option>)}
+                </select>
+              </div>
+            </div>
+            <div style={{display:"flex",gap:40,alignItems:"flex-start",flexWrap:"wrap"}}>
+              <div>
+                {tmplFormat==="square" && <InstagramSquare topic={templateTopic}/>}
+                {tmplFormat==="story" && <StoryTemplate topic={templateTopic}/>}
+                {tmplFormat==="tiktok" && <TikTokTemplate topic={templateTopic}/>}
+                {tmplFormat==="linkedin" && <LinkedInTemplate topic={templateTopic}/>}
+                {tmplFormat==="animated" && <AnimatedTemplate topic={templateTopic}/>}
+              </div>
+              <div style={{flex:1,minWidth:260}}>
+                <div style={{background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:12,padding:20}}>
+                  <div style={{fontWeight:700,fontSize:15,color:C.n8,marginBottom:12}}>{tmplFormat==="animated"?"Animated Post":"Static Template"} — Usage Guide</div>
+                  {tmplFormat==="square" && <TemplateGuide format="Instagram Square (1:1)" dims="1080×1080px" tools="Figma, Canva" notes={["Export at 2× (1080px) for Instagram feed","Blue/dark bg with gold accent = highest stop rate","Pair with the carousel caption from Content Studio","Post Tue–Thu 7–9am or 12–1pm EST"]}/>}
+                  {tmplFormat==="story" && <TemplateGuide format="Instagram Story / Reels Cover (9:16)" dims="1080×1920px" tools="Figma, Canva, CapCut" notes={["Export at 2× for crisp mobile rendering","Use as Reels cover image or Story background","Add animated text overlay in CapCut or InShot","Student-facing: warm gold tones signal trust"]}/>}
+                  {tmplFormat==="tiktok" && <TemplateGuide format="TikTok Thumbnail (9:16)" dims="1080×1920px" tools="CapCut, Canva, Figma" notes={["Bold text hook visible without unmuting","Progress bar at bottom signals series content","Dark gradient = strong contrast on all devices","Export as PNG for static, or MP4 for animated cover"]}/>}
+                  {tmplFormat==="linkedin" && <TemplateGuide format="LinkedIn Post Image (1.91:1)" dims="1200×627px" tools="Figma, Canva" notes={["White/light bg performs better on LinkedIn feed","Include the metric or key stat in the graphic","Tag 2–3 relevant companies or people for reach","Post midweek 8–10am for professional audience"]}/>}
+                  {tmplFormat==="animated" && <TemplateGuide format="Animated Social Post (CSS/MP4)" dims="1080×1080px or 1080×1920px" tools="After Effects, CapCut, Lottie" notes={["Export as MP4 for Instagram, TikTok, LinkedIn","Stagger text animation: 0.3s delay per element","Scanline effect reinforces tech-forward brand theme","Keep loop under 4s for auto-play engagement","Use as standalone or as video post cover frame"]}/>}
+                </div>
+                <div style={{marginTop:12,background:C.g1,border:`1px solid ${C.g2}`,borderRadius:12,padding:"12px 16px"}}>
+                  <div style={{fontSize:12,fontWeight:700,color:C.g8,marginBottom:6}}>AI VIDEO TOOLS — RECOMMENDED PIPELINE</div>
+                  {[{tool:"HeyGen",use:"Talking-head avatar for educational scripts. Use the PGWP or cap topic scripts."},{tool:"Runway Gen-4",use:"B-roll generation from text prompts. Match shot list from Video Scripts tab."},{tool:"Sora",use:"Cinematic background footage — Canadian campus, immigration office, city life."},{tool:"ElevenLabs",use:"Voiceover for scripts. Set voice to warm, confident tone matching brand."}].map(({tool,use})=>(
+                    <div key={tool} style={{display:"flex",gap:8,marginBottom:6}}>
+                      <span style={{fontWeight:700,fontSize:12,color:C.g8,minWidth:90}}>{tool}</span>
+                      <span style={{fontSize:12,color:C.g9,lineHeight:1.4}}>{use}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── VIDEO SCRIPTS TAB ────────────────────────────────────── */}
+        {tab==="scripts" && (
+          <div>
+            <div style={{marginBottom:20}}>
+              <h1 style={{fontFamily:C.dp,fontSize:28,margin:"0 0 6px",color:C.b9}}>Video Scripts</h1>
+              <p style={{fontSize:14,color:C.n6,margin:0}}>Structured scripts for TikTok, Reels, YouTube, and AI video platforms.</p>
+            </div>
+            <div style={{display:"flex",gap:16,marginBottom:20,flexWrap:"wrap"}}>
+              <div>
+                <div style={{fontSize:11,fontWeight:700,letterSpacing:.5,color:C.n6,marginBottom:8}}>TOPIC</div>
+                <select value={scriptTopic} onChange={e=>setScriptTopic(e.target.value)} style={{border:`1px solid ${C.n4}`,borderRadius:8,padding:"7px 12px",fontSize:13,color:C.n7,background:C.bwh,outline:"none",maxWidth:360}}>
+                  {TOPICS.map(t=><option key={t.id} value={t.id}>{t.title.substring(0,55)}…</option>)}
+                </select>
+              </div>
+              <div>
+                <div style={{fontSize:11,fontWeight:700,letterSpacing:.5,color:C.n6,marginBottom:8}}>FORMAT</div>
+                <div style={{display:"flex",gap:8}}>
+                  {[{id:"tk",label:"TikTok / Reels"},{id:"yt",label:"YouTube Long-form"}].map(f=>(
+                    <button key={f.id} onClick={()=>setScriptFormat(f.id)} style={{background:scriptFormat===f.id?C.b8:C.bwh,color:scriptFormat===f.id?C.wh:C.n7,border:`1px solid ${scriptFormat===f.id?C.b8:C.n4}`,borderRadius:999,padding:"7px 16px",fontSize:13,fontWeight:scriptFormat===f.id?600:400,cursor:"pointer",transition:"all .15s"}}>{f.label}</button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {scriptContent ? (
+              <div style={{display:"grid",gridTemplateColumns:"1fr 320px",gap:16,alignItems:"start"}}>
+                <div style={{background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:12,overflow:"hidden"}}>
+                  <div style={{background:C.b9,padding:"14px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                    <div>
+                      <div style={{color:C.wh,fontWeight:600,fontSize:14}}>{scriptContent.title||`${CHANNELS.find(c=>c.id===scriptFormat)?.label} Script`}</div>
+                      <div style={{color:C.b4,fontSize:12,marginTop:2}}>{TOPICS.find(t=>t.id===scriptTopic)?.cat} · {scriptContent.duration||"Long-form"}</div>
+                    </div>
+                    <button onClick={()=>{
+                      let t=`TITLE: ${scriptContent.title||""}\n\nHOOK:\n${scriptContent.hook}\n\n`;
+                      if(scriptContent.type==="script"){t+=`BODY:\n${scriptContent.body}\n\nCTA:\n${scriptContent.cta}\n\nB-ROLL:\n${scriptContent.broll?.join("\n")}`;}
+                      else if(scriptContent.type==="script"&&scriptContent.outline){t+=`OUTLINE:\n${scriptContent.outline.join("\n")}\n\nSCRIPT SAMPLE:\n${scriptContent.script_sample}`;}
+                      if(scriptContent.outline){t+=`\n\nOUTLINE:\n${scriptContent.outline.join("\n")}`;}
+                      if(scriptContent.script_sample){t+=`\n\nSCRIPT SAMPLE:\n${scriptContent.script_sample}`;}
+                      handleCopy(t);
+                    }} style={{background:copied?C.gr8:C.g6,color:C.wh,border:"none",borderRadius:999,padding:"7px 18px",fontSize:12,fontWeight:600,cursor:"pointer"}}>
+                      {copied?"✓ Copied!":"Copy Script"}
+                    </button>
+                  </div>
+                  <div style={{padding:20,display:"flex",flexDirection:"column",gap:16}}>
+                    <Section label="HOOK / OPENING LINE" color={C.r1} textColor="#9B1C1C">
+                      <span style={{fontSize:15,fontFamily:C.dp,color:C.n8,lineHeight:1.4}}>{scriptContent.hook}</span>
+                    </Section>
+                    {scriptContent.body && <Section label={`BODY (${scriptContent.duration||""})`} color={C.b1} textColor={C.b8}><pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:13.5,lineHeight:1.7,margin:0,color:C.n7}}>{scriptContent.body}</pre></Section>}
+                    {scriptContent.cta && <Section label="CALL TO ACTION" color={C.g1} textColor={C.g8}>{scriptContent.cta}</Section>}
+                    {scriptContent.broll && (
+                      <Section label="B-ROLL / SHOT LIST" color={C.n2} textColor={C.n6}>
+                        {scriptContent.broll.map((b,i)=>(
+                          <div key={i} style={{display:"flex",gap:10,padding:"5px 0",borderBottom:i<scriptContent.broll.length-1?`1px solid ${C.n4}`:"none"}}>
+                            <span style={{color:C.b6,fontWeight:600,fontSize:13,minWidth:20}}>{i+1}.</span>
+                            <span style={{fontSize:13,color:C.n7}}>{b}</span>
+                          </div>
+                        ))}
+                      </Section>
+                    )}
+                    {scriptContent.outline && (
+                      <Section label="VIDEO OUTLINE / CHAPTERS" color={C.b1} textColor={C.b8}>
+                        {scriptContent.outline.map((o,i)=>(
+                          <div key={i} style={{display:"flex",gap:10,padding:"6px 0",borderBottom:i<scriptContent.outline.length-1?`1px solid ${C.n4}`:"none"}}>
+                            <span style={{color:C.b6,fontWeight:700,fontSize:12,minWidth:20}}>{i+1}.</span>
+                            <span style={{fontSize:13,color:C.n7,lineHeight:1.5}}>{o}</span>
+                          </div>
+                        ))}
+                      </Section>
+                    )}
+                    {scriptContent.script_sample && (
+                      <Section label="SCRIPT SAMPLE" color={C.g1} textColor={C.g8}>
+                        <pre style={{whiteSpace:"pre-wrap",fontFamily:C.db,fontSize:13,lineHeight:1.7,margin:0,color:C.n7}}>{scriptContent.script_sample}</pre>
+                      </Section>
+                    )}
+                  </div>
+                </div>
+                {/* Right: AI tools sidebar */}
+                <div style={{display:"flex",flexDirection:"column",gap:12}}>
+                  <div style={{background:C.bwh,border:`1px solid ${C.n4}`,borderRadius:12,padding:16}}>
+                    <div style={{fontWeight:700,fontSize:13,color:C.n8,marginBottom:12}}>AI VIDEO PRODUCTION</div>
+                    {[
+                      {tool:"HeyGen",desc:"Paste this script to generate an AI avatar video. Set style to 'casual professional.' Recommended for talking-head formats.",color:C.b1,tc:C.b8},
+                      {tool:"Runway Gen-4",desc:"Generate b-roll footage using the shot list above. Prompt each shot description directly.",color:C.g1,tc:C.g8},
+                      {tool:"ElevenLabs",desc:"Generate voiceover from this script. Use a warm, mid-range voice. Speed: 0.95×.",color:C.r1,tc:C.r8},
+                      {tool:"CapCut",desc:"Assemble HeyGen avatar + Runway b-roll + ElevenLabs VO. Add captions with auto-transcribe.",color:C.n2,tc:C.n7},
+                    ].map(({tool,desc,color,tc})=>(
+                      <div key={tool} style={{background:color,borderRadius:8,padding:"10px 12px",marginBottom:8}}>
+                        <div style={{fontSize:11,fontWeight:700,color:tc,marginBottom:4,letterSpacing:.3}}>{tool}</div>
+                        <div style={{fontSize:12,color:C.n7,lineHeight:1.45}}>{desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{background:C.b9,borderRadius:12,padding:16}}>
+                    <div style={{fontWeight:700,fontSize:12,color:C.g4,marginBottom:10,letterSpacing:.5}}>BRAND VOICE REMINDER</div>
+                    {["Plain, direct, warm — not corporate","Qualify legal claims: 'may be eligible,' not 'is eligible'","Specific over sweeping — cite numbers","Speak to what the reader gains, not what the tech does"].map((v,i)=>(
+                      <div key={i} style={{fontSize:12,color:C.b2,lineHeight:1.5,padding:"5px 0",borderBottom:i<3?`1px solid ${C.b8}`:"none"}}>✓ {v}</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div style={{padding:40,textAlign:"center",color:C.n5}}>Select a topic to generate a script.</div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── TEMPLATE GUIDE HELPER ────────────────────────────────────────────────────
+function TemplateGuide({format,dims,tools,notes}) {
+  return (
+    <div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:12}}>
+        <div><div style={{fontSize:10,color:"#9E9994",fontWeight:700,letterSpacing:.5,marginBottom:2}}>FORMAT</div><div style={{fontSize:12,color:"#504D49",fontWeight:500}}>{format}</div></div>
+        <div><div style={{fontSize:10,color:"#9E9994",fontWeight:700,letterSpacing:.5,marginBottom:2}}>DIMENSIONS</div><div style={{fontSize:12,color:"#504D49",fontWeight:500}}>{dims}</div></div>
+        <div><div style={{fontSize:10,color:"#9E9994",fontWeight:700,letterSpacing:.5,marginBottom:2}}>TOOLS</div><div style={{fontSize:12,color:"#504D49",fontWeight:500}}>{tools}</div></div>
+      </div>
+      <div style={{fontSize:10,color:"#9E9994",fontWeight:700,letterSpacing:.5,marginBottom:6}}>PRODUCTION NOTES</div>
+      {notes.map((n,i)=><div key={i} style={{fontSize:12,color:"#504D49",lineHeight:1.5,padding:"4px 0",borderBottom:i<notes.length-1?"1px solid #F0EEEA":"none"}}>→ {n}</div>)}
+    </div>
+  );
+}
+
+
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(React.createElement(BorderPassContentCreator));
+  </script>
+</body>
+</html>
