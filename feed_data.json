@@ -1,218 +1,154 @@
 {
-  "updated": "Apr 1, 2026 (seed data — live updates begin after GitHub setup)",
-  "count": 14,
+  "updated": "Apr 02, 2026 08:07 UTC",
+  "count": 10,
   "items": [
     {
-      "id": "f1",
+      "id": "news-ca953da4",
       "cat": "ircc",
-      "src": "IRCC.gc.ca",
-      "date": "Mar 26, 2026",
-      "urgency": "high",
-      "title": "Express Entry Draw #293: 847 Invitations, CRS Cut-off 524",
-      "summary": "Latest all-program draw issued 847 ITAs. CRS dropped 6 points to 524, tracking IRCC's 485,000 PR target for 2026. Category-based draws for STEM and healthcare expected Q2.",
+      "src": "canada.ca",
+      "date": "Apr 02, 2026",
+      "title": "New immigration and asylum measures from Bill C-12 (the Strengthening Canada’s Immigration System and Borders Act) have become law",
+      "summary": "New immigration and asylum measures from Bill C-12 (the Strengthening Canada’s Immigration System and Borders Act) have become law canada.ca",
       "tags": [
-        "Express Entry",
-        "CRS 524",
-        "PR Pathway"
+        "News",
+        "Canada",
+        "Immigration"
       ],
-      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html"
-    },
-    {
-      "id": "f2",
-      "cat": "ircc",
-      "src": "IRCC.gc.ca",
-      "date": "Mar 20, 2026",
-      "urgency": "high",
-      "title": "Study Permit Cap Extended Through 2026 — New Provincial Allocations Live",
-      "summary": "Cap maintained for 2026 intake. New allocations prioritize graduate-level programs and co-op streams. Several Ontario and BC institutions are already at capacity. Stricter document requirements in effect.",
-      "tags": [
-        "Study Permit",
-        "Cap 2026",
-        "International Students"
-      ],
-      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2024/01/canada-to-stabilize-growth-and-decrease-number-of-new-international-student-study-permit-holders.html"
-    },
-    {
-      "id": "f3",
-      "cat": "ircc",
-      "src": "IRCC.gc.ca",
-      "date": "Mar 15, 2026",
-      "urgency": "high",
-      "title": "PGWP Processing Now Averaging 17 Weeks",
-      "summary": "Post-graduation work permit processing has extended to 17 weeks average. Maintained status applies to graduates who applied before their study permit expired. IRCC recommends applying immediately after graduation.",
-      "tags": [
-        "PGWP",
-        "Processing Time",
-        "Work Permit"
-      ],
-      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html"
-    },
-    {
-      "id": "f4",
-      "cat": "ircc",
-      "src": "IRCC.gc.ca",
-      "date": "Mar 10, 2026",
       "urgency": "medium",
-      "title": "Rural & Northern Immigration Pilot Expands to 14 New Communities",
-      "summary": "RNIP now covers 14 additional communities across Manitoba, Saskatchewan, and Northern Ontario. Employer endorsement remains central. Occupations list updated to reflect regional labour market needs.",
-      "tags": [
-        "RNIP",
-        "Rural Immigration",
-        "Employer Pathway"
-      ],
-      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/rural-northern-immigration-pilot.html"
+      "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxQSGIxYmFaZG4tamFERU5GeGFBUlJydGdNdW9Xc1hQOFpmMURNUEh2TTY0Y3hLZ29UXzUzVWE4clBaZDEtaUpUeEc0Z3RJbzdqMWN5SEVUcDFwcndqZ0k3a2psTGFLT2J6OHVMMV9nSFNyQVZlNlhFeGppdm9kcUdnZ1VGWWNWaXV6ZWlJNjhvbWc4QV93U21PajBLSl9lWndGcWhfdkZyRUZFUjFOTGxTdGpycFdtUGNLNjJVVXBaRHhQTlJrT01KQkdGclo3OWh6V25UN3hCZUo5NUhSOGdfbDZOS2ZIck5EMEVMbGVxajBLLWNEekhkVjJlcU42eVRoSm9KVmlGUUhnc285emlFaHRGUHRTVHJ1OEctUzZQSUgzX3d2ek5jdVh2RQ?oc=5"
     },
     {
-      "id": "f5",
-      "cat": "competitor",
-      "src": "Arrive Finance",
-      "date": "Mar 24, 2026",
+      "id": "news-50ed493e",
+      "cat": "ircc",
+      "src": "canada.ca",
+      "date": "Apr 02, 2026",
+      "title": "Canada prioritizes top talent in 2026 immigration Express Entry categories",
+      "summary": "Canada prioritizes top talent in 2026 immigration Express Entry categories canada.ca",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
       "urgency": "medium",
-      "title": "Arrive Launches Newcomer Mortgage Prep Tool — Immigration Gap Visible",
-      "summary": "New feature focuses on financial readiness only. Does not address PGWP validity, work authorization status, or immigration pathway — the actual blockers for newcomer mortgage approvals. Clear content gap for BorderPass to own.",
-      "tags": [
-        "Arrive",
-        "Gap Analysis",
-        "Fintech"
-      ],
-      "url": "#"
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNU2tQTmpZN1AwZGpYQ1NueUdveDdVMUtNR3Ryc1c1QlU3NV9adzVFcFNqakw4U3NrbXNqRDVyTTVJYURJanllQ0hxSmRHeG5oWVM0dFNqNU44eGNETlhpTm9lbjZaMXFJOTRFMFE4dllnYWM5WVJqRndxYUpJcU1hVC1ZaGgyRXhJNUJxOFJtcExPVTQtaE9MWVkzZzZlcVpLQnpvUFM0elNFUG5JR0ktUmszckNMWXFjQ1NvQVJ5ZHFFRVFVU1J1eGdrWHVFWGp2cTlENEdsZ3gwRTgybVhCUDZqREU?oc=5"
     },
     {
-      "id": "f6",
+      "id": "news-59bafcc0",
+      "cat": "industry",
+      "src": "iPolitics",
+      "date": "Apr 02, 2026",
+      "title": "To compete globally, Canada must fix the international student program",
+      "summary": "To compete globally, Canada must fix the international student program iPolitics",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRnpDcVFWdk9VWHJpdHJCeWkzcU1TR1J3OS15YlIwTDhXTTRKcEUzdnUtYXFyQnFkUG10eFhQdnNVZ3FiRl8zTDhrdkxIMS1uLU04SkJRTUhxSjF2NHRnMmhoeWxsQmZ5SkloVXdDdHVBNWhGNXppaDJFNWtwU21qV292S3phaDZOMHlRYTB0bFBGRkJfRXN0SWhrTk9SbWl4cE9LdUtWRXQzdw?oc=5"
+    },
+    {
+      "id": "news-96f0894f",
+      "cat": "industry",
+      "src": "ICEF Monitor",
+      "date": "Apr 02, 2026",
+      "title": "Canada’s language training sector reinvents pathway programme model in response to policy settings",
+      "summary": "Canada’s language training sector reinvents pathway programme model in response to policy settings ICEF Monitor",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQS19SYkw0SWJfNXo4N3dCekdtUGNBckNKd3ZydHY2YWwzZlRwSXUzb0lndTRwaUJmamdBaUtrSmVGSFZDMDllNk5ZRzVZMVdTVHgzWTBEWkpPZngwRTNwTHZjYUpEYzNDV1l3WDNNMklGQm9JdjVxSWxBWnZBVFg4S2J3YTdTcXdyU25BcHJqa1ktYzlrT19mTnc1N24taUdmSk1YbVBxN3IwWDNMLWx2TV9rd2tPeDBnN3c3N3BzNzN1UWpVRzIxRkc1Zw?oc=5"
+    },
+    {
+      "id": "news-3274cdf6",
+      "cat": "industry",
+      "src": "y-axis.com",
+      "date": "Apr 02, 2026",
+      "title": "Canada Announces Eight Major Immigration Changes Effective from April 1, 2026. Check Your Eligibility Now!",
+      "summary": "Canada Announces Eight Major Immigration Changes Effective from April 1, 2026. Check Your Eligibility Now! y-axis.com",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMVF4MVE5cUZxSnl3UXRSOUx6ZkJjNUJnNi1KTldRN2pIYWJrT0gxVkg1ZnRadTJsNWRTTjdHRVpBMTgtX043bnpoajFEaFBKa0FqZTF4T0RFQjNTOGJab296Yy1RUzZKVU5NT3lsX21Ia0Y2YzgwLWt1UUtrXzItZFlHSkQtcHFwazJTUkw1SVo?oc=5"
+    },
+    {
+      "id": "news-4aa968a3",
+      "cat": "industry",
+      "src": "immigration.ca",
+      "date": "Apr 02, 2026",
+      "title": "Canada Extends Work Permits to Support Quebec Immigration Transition",
+      "summary": "Canada Extends Work Permits to Support Quebec Immigration Transition immigration.ca",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPeDRnZGxKTmZtd0RUc3RiUmZ3aDlYV0ZTTlBBemZOY3hsd1JMZFVUSmtuZkRfN1pERTIycVd4cXdqOGl5eTNvVDZaRmRqU3BGa3lUb1hxUS1zOVRMRWQzUFcwWXp6a0ZSaUl3OGpqM2dKaGdQdTFRWmN2MzdRTldLb0t6dnhoQlVTaHAzSnBaTVM1WU0xQ3d3?oc=5"
+    },
+    {
+      "id": "news-694ea230",
+      "cat": "ircc",
+      "src": "CIC News",
+      "date": "Apr 02, 2026",
+      "title": "Eight Canadian immigration changes effective April 1",
+      "summary": "Eight Canadian immigration changes effective April 1 CIC News",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOS0FwX3VYQ2pPQUczaVNkYjlhbkRWa05ZYVdVRnk0bWZSaE9jSDFKQkVsbmR5em5XNnEwZGtZUWpidVRocjdSUXNpNHpHLUgwT1BScWVaZTIxeVV3UEtqUVlwNXprSnpyYjZzT1hpWWRVcFYtR284YlBaVDZUTHRrRHl1NWlfVEI3Z09YN3hDdGUxOVVwSzlRTXpRTzAtd9IBowNBVV95cUxQUmgwN1RfUENZTUtLMjBNbUIxOEVYNEFkenFhcWVrTjJzUkZsYkpXVHFQUDQzcXFUdnBYX1I1VEk2NmNzNm1wX3RGa1JSbERfOUQ0UGpVZG0xb3cyNU9ZZkRqcVBQd1JQV2I1bzZLLUZ4NnczQVlmQVhpTWVPdnJZOFVRUUhKRExFVEJnUVRDXzVheGVIRi1WOXlBcWxmaUlvT1Y4c3BvMkZacThkNG4wWHRkQXRWMWRGYlRIcm5WakE2Qll1V0laTklMWVMxcDBjTGRlOG5ndVVTU2t0dEpiamRja2dpZ1pSNmVtLTEwdHdxLWVMaklKTWpIUklxMkFTZUZNWTFQUWRhcFhRQzJwbWlTZnpUSmdSX3l4LURWbGpwbHdZaXplQVdsXzlpa0ZNTmlfYUdIYmF0cnZwMHU5V3hQR1hPbHlvNWNMME5idk1heENaLXItbFVlYzFDMEZqWV8wZmhJQlhKeGprUDV3TkZMaURRSllRaW1EYkRKV3UzWUZpT1FDYmg0T25TYVc4VWpTN3RvQWVPZ2RmU2V3U2EtRQ?oc=5"
+    },
+    {
+      "id": "news-3476858b",
+      "cat": "ircc",
+      "src": "ImmigCanada Immigration Consulting Services",
+      "date": "Apr 02, 2026",
+      "title": "Latest Express Entry Draw #407 Invites Skilled Workers Through CEC Program",
+      "summary": "Latest Express Entry Draw #407 Invites Skilled Workers Through CEC Program ImmigCanada Immigration Consulting Services",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBGREdlSEREUkd2YmpHVjhMT3VKRUZUaktrMjB3WUtxa04xMm5Oa18yaTZmX0F4WHBxUVRNUUdHSjQyVzZoVGxEY2QwV0NVc2hnOWxQZ1NNU3pYS2JXaThjVDdoc2s?oc=5"
+    },
+    {
+      "id": "comp-27d1f727",
       "cat": "competitor",
       "src": "Moving2Canada",
-      "date": "Mar 21, 2026",
-      "urgency": "low",
-      "title": "\"Top 10 Jobs for New Immigrants\" Driving Strong Organic Traffic",
-      "summary": "High-engagement content. Key gap: no connection between job type and required immigration pathway or work permit eligibility. BorderPass can own the immigration-integrated version of this evergreen content.",
+      "date": "Apr 02, 2026",
+      "title": "IRCC Is Making Mistakes—Here’s How to Protect Yourself",
+      "summary": "New content from Moving2Canada.",
       "tags": [
         "Moving2Canada",
-        "SEO",
-        "Content Gap"
+        "Competitor"
       ],
-      "url": "#"
+      "urgency": "low",
+      "url": "https://moving2canada.com/features/ircc-mistakes-canada-march-2026/"
     },
     {
-      "id": "f7",
+      "id": "comp-5bdb1198",
       "cat": "competitor",
-      "src": "CanadaVisa",
-      "date": "Mar 18, 2026",
-      "urgency": "medium",
-      "title": "CanadaVisa Processing Time Tracker Hits 45K Monthly Visits",
-      "summary": "High-traffic tool with no student-specific variant and no interpretation layer. Opportunity: weekly processing time updates with meaning, not just raw numbers. Tracker + commentary = differentiated tool.",
+      "src": "Moving2Canada",
+      "date": "Apr 02, 2026",
+      "title": "PR Card versus PR Status: Differences Newcomers Should Know",
+      "summary": "New content from Moving2Canada.",
       "tags": [
-        "CanadaVisa",
-        "SEO",
-        "Tool Gap"
+        "Moving2Canada",
+        "Competitor"
       ],
-      "url": "#"
-    },
-    {
-      "id": "f8",
-      "cat": "ugc",
-      "src": "r/ImmigrationCanada",
-      "date": "Mar 27, 2026",
-      "urgency": "high",
-      "title": "\"Can I work while my PGWP is processing?\" — 847 upvotes, 312 comments",
-      "summary": "Top post this week. Most answers are incomplete or contradictory. Correct answer: yes, via maintained status, with specific conditions most people miss. High-urgency content opportunity — own this answer definitively.",
-      "tags": [
-        "PGWP",
-        "Reddit",
-        "FAQ",
-        "High Intent"
-      ],
-      "url": "https://www.reddit.com/r/ImmigrationCanada/"
-    },
-    {
-      "id": "f9",
-      "cat": "ugc",
-      "src": "r/studyAbroad",
-      "date": "Mar 25, 2026",
-      "urgency": "high",
-      "title": "\"Is a Canadian degree still worth it?\" — 1.2K upvotes, 489 comments",
-      "summary": "Growing anxiety about Canada's value proposition. Key concerns: cost, permit uncertainty, post-graduation pathways. Mixed-to-negative sentiment trending. A trust-building opportunity — answer honestly with data.",
-      "tags": [
-        "Student Sentiment",
-        "Anxiety",
-        "Reddit"
-      ],
-      "url": "https://www.reddit.com/r/studyAbroad/"
-    },
-    {
-      "id": "f10",
-      "cat": "ugc",
-      "src": "TikTok @immigrationcanada",
-      "date": "Mar 22, 2026",
-      "urgency": "high",
-      "title": "\"My study permit was refused for this reason\" — 2.3M views",
-      "summary": "Viral TikTok on refusal reasons. Top comment: 'How do I know if mine will be refused?' No immigration brand has answered this clearly. Refusal prevention content converts strongly for BorderPass's funnel.",
-      "tags": [
-        "TikTok",
-        "Viral",
-        "Study Permit",
-        "Refusal"
-      ],
-      "url": "https://www.tiktok.com/"
-    },
-    {
-      "id": "f11",
-      "cat": "ugc",
-      "src": "Facebook: Canada Immigration",
-      "date": "Mar 20, 2026",
-      "urgency": "medium",
-      "title": "\"My employer wants to hire me full-time but doesn't know how\" — 540 comments",
-      "summary": "International grads struggling to help employers navigate work authorization. Strong signal for employer-facing content about PGWP-based hiring mechanics. Dual-audience opportunity (student + employer content).",
-      "tags": [
-        "Employer",
-        "Facebook",
-        "Work Auth"
-      ],
-      "url": "#"
-    },
-    {
-      "id": "f12",
-      "cat": "industry",
-      "src": "CBIE Research",
-      "date": "Mar 19, 2026",
-      "urgency": "high",
-      "title": "International Student Enrollment Down 11% — First Decline in 12 Years",
-      "summary": "Cap policies and economic concerns drive historic enrollment drop. Employer talent pipelines dependent on international graduates are beginning to contract. The data story for B2B audiences is compelling and available.",
-      "tags": [
-        "CBIE",
-        "Enrollment Data",
-        "Employers"
-      ],
-      "url": "https://cbie.ca"
-    },
-    {
-      "id": "f13",
-      "cat": "industry",
-      "src": "CBC News",
-      "date": "Mar 17, 2026",
-      "urgency": "high",
-      "title": "67% of Canadian Employers Struggle to Retain International Graduates",
-      "summary": "CBC survey of 320 employers: immigration uncertainty is the primary retention barrier, ahead of salary and culture. This validates BorderPass's employer value proposition with third-party data at scale.",
-      "tags": [
-        "Employers",
-        "Retention",
-        "CBC"
-      ],
-      "url": "https://cbc.ca"
-    },
-    {
-      "id": "f14",
-      "cat": "industry",
-      "src": "CAPS-I Newsletter",
-      "date": "Mar 14, 2026",
-      "urgency": "medium",
-      "title": "DLI Compliance Audits Start Q2 — International Student Support in Scope",
-      "summary": "Designated learning institutions face new auditing on international student support starting April 2026. Schools that can't demonstrate adequate support risk DLI status. Institutional partnership angle for BorderPass.",
-      "tags": [
-        "DLI",
-        "Compliance",
-        "Post-Secondary"
-      ],
-      "url": "#"
+      "urgency": "low",
+      "url": "https://moving2canada.com/features/pr-card-vs-pr-status/"
     }
   ]
 }
