@@ -1,12 +1,12 @@
 {
-  "updated": "Apr 07, 2026 08:14 UTC",
+  "updated": "Apr 08, 2026 08:13 UTC",
   "count": 10,
   "items": [
     {
       "id": "news-50ed493e",
       "cat": "ircc",
       "src": "canada.ca",
-      "date": "Apr 07, 2026",
+      "date": "Apr 08, 2026",
       "title": "Canada prioritizes top talent in 2026 immigration Express Entry categories",
       "summary": "Canada prioritizes top talent in 2026 immigration Express Entry categories canada.ca",
       "tags": [
@@ -21,7 +21,7 @@
       "id": "news-b42309c2",
       "cat": "ircc",
       "src": "canada.ca",
-      "date": "Apr 07, 2026",
+      "date": "Apr 08, 2026",
       "title": "Canada launches measures to support those impacted by domestic natural disasters",
       "summary": "Canada launches measures to support those impacted by domestic natural disasters canada.ca",
       "tags": [
@@ -33,55 +33,40 @@
       "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPZVhRVmdvVDhvSnE4WlVhOU5Eb2RCeG5kX2ZkRGdLa2MxX0s4cWdWd0FvRlQtaWNYTG5JeEdERS1TY1IxM0R3a3RGRV9kWmY1ajFyRjNtWElFWGMzUG5iMXpzRU5qM0c0dFRtSVRSVEpTRzloaE1rRlk4UlRMS2NkQU1jRk41RHpwdDhVRUhCQ0dXR3l2UzVjNkZRelg1U1hCZGgzY1pCaVdkWnppQVBTZnBFQWx4Sk9pZzhnaF9pTFpSRU1zSXE1Rm9nTGFrTWhPNG1veFdrRjlfWGNmdWVJekxpOTBpSGl3cWlqRA?oc=5"
     },
     {
-      "id": "news-b4a75af0",
+      "id": "news-bd03f5ad",
+      "cat": "industry",
+      "src": "University World News",
+      "date": "Apr 08, 2026",
+      "title": "New report highlights flaws in student visa reform attempts",
+      "summary": "New report highlights flaws in student visa reform attempts University World News",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBsV1UtSHZwdE53WUhpdlZ3X0VDTFNpZzA4ZnpPYjJNQ2E0ZlNETzVfdVNMNFp0ZDJhUVA2NEkzM2VELURLUnN4VGZCZlhET000WTFqcndqZXZ3Y19uWkcxYWI0OW13X2ZkM3BpM1hCTENKWUU1aS1V?oc=5"
+    },
+    {
+      "id": "news-1bccc5b1",
+      "cat": "industry",
+      "src": "Hindustan Times",
+      "date": "Apr 08, 2026",
+      "title": "Canada asks Indian and other international students to confirm visa compliance",
+      "summary": "Canada asks Indian and other international students to confirm visa compliance Hindustan Times",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQeUdCQ1JXM1dzcTJvTlB2TkNUVml4RTFIczVUdVlKU05zNkRqZDBHMVktT2prS3RicHIzckhUcDVYV1YtSXdUdGp1R09ONDRzNzRnNEYtVzNueXVncHd4RDkwYUUtMTFBZ05VcWswN1g4SmJfYThib3p1bmZxMi1DTE9SN2ZmR2lUYXlvcnVjaFlSbGx2eTRLOS00ZmJMaFJUbTgxbHQ0WmdjTmtSVGJvNXdBTTVZVV9hRElRT1pVRWZSWW05TFczVTY0dEZGTGJMWmNUZUlZZ2c?oc=5"
+    },
+    {
+      "id": "news-5f1a8c28",
       "cat": "industry",
       "src": "CIC News",
-      "date": "Apr 07, 2026",
-      "title": "Canada introduces special measures to help temporary residents impacted by natural disasters",
-      "summary": "Canada introduces special measures to help temporary residents impacted by natural disasters CIC News",
-      "tags": [
-        "News",
-        "Canada",
-        "Immigration"
-      ],
-      "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPalpMT2JhcGpNZE9tMU5sQ2xPS243aUY3TUxNbjFUR0ZLZ0JYMEdkU2I5bHkzTDNORjhadDhjTGFnMnBhU2ZuV3N1MzY3c1JMcGtPUmVqYVIyTFRYVFV0b1V6ZnFzNmYtT2MtMGtjbEd0dWF2VWVVSUViRUl1bmlURHFycFh5V2ZhTHVSRnhSd3lyeGdiTzFhT2g1UzA5RWtuYzZRVHV4TGJUWXNlOGFxOE94WHZTMmt0anNfbkI3MWxDTDZYRWJ5OVJqT1lmMnlaVEF2bkNSR180eGNGcE42WkdHZzh5cG9ELWwzSdIB8gFBVV95cUxQRUJjSXFJVk5fWGxxU0g3SF9wMWRod0llZE81V1RGeW9vLTVoNkhuZV9Gc1Z6dkRnZGJUblZReE1OM0NubHp5YkNpSGZwckVBY3p1YzJBTTdTc0cwalNFRjV6Z0pVdFBfWFExRm1IXzF3YzVXRjJERENrWmlSaGZVNm1KUDRFN2k3MjU4N1dEWEtKZ3BCUVFRNEtoZnk4alFTQlB4dXRtVlVPMmZKRER4aUJPOXFVV0R6MjZyaE41VjMxTHgyQ1prT3JnWlVGbE1Kd2F1OUxoWW9nWUdfdDViZG8zT19LeWVEOEpaYkV2NFZLdw?oc=5"
-    },
-    {
-      "id": "news-f7a02d73",
-      "cat": "industry",
-      "src": "CBC",
-      "date": "Apr 07, 2026",
-      "title": "Immigration Department not keeping up with demand for student visa probes: auditor general",
-      "summary": "Immigration Department not keeping up with demand for student visa probes: auditor general CBC",
-      "tags": [
-        "News",
-        "Canada",
-        "Immigration"
-      ],
-      "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZjM2UktGNHZ3b21PVWZ2U1dpUE1MUTA0N29xWlpreEFaaVU5ZV9vSTEybW5ncFJNZE5kSFZ2LVk5Y1NPZnQyT3ZTY2xSWFNocVE5T3U4Ukwyc2ZmbGJENndlU1czSzNPSUJQVjltOFZlcWx4OHRFaGtUc1h3VTBIeXJLVnNhclZf?oc=5"
-    },
-    {
-      "id": "news-233d22e7",
-      "cat": "industry",
-      "src": "CBC",
-      "date": "Apr 07, 2026",
-      "title": "Alberta gov't wants businesses to register provincially before hiring foreign workers",
-      "summary": "Alberta gov't wants businesses to register provincially before hiring foreign workers CBC",
-      "tags": [
-        "News",
-        "Canada",
-        "Immigration"
-      ],
-      "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNRVIxRXR5UU9YeWJIQjRGRzNGd3lXUlVxdEFzcW5xUzEzOWFDbkVGczZqME94Z0NDUzFiRHI2UDBfbVBOQTltLWxUTkkxWHZWZlJYX1JfVXdWdGxxTW1jRGlPR3BhR19ueUhsQ0RQWk9oR19vRWJ4OTgzcmZxeXlOQm9mampJUFowQnhla09qQnptYnRkREVV?oc=5"
-    },
-    {
-      "id": "news-8f9385f0",
-      "cat": "industry",
-      "src": "CIC News",
-      "date": "Apr 07, 2026",
+      "date": "Apr 08, 2026",
       "title": "Canada extends pilot granting LMIA-exempt work permits",
       "summary": "Canada extends pilot granting LMIA-exempt work permits CIC News",
       "tags": [
@@ -90,13 +75,28 @@
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPVTB2SmtLUXU3c0k5U0FWZVFrdFNqLW1EOHVfVTF3WEhXRVF4aHJVOFA3cWN5cGxnYWQ4dU1iOWRjbkpnYTQ4WE5EZkh0TWN2NWU1TVNBZ0tLU2Zyc2JQZzNVSmxUUGZjMVJzNkprRnNoT1lSWXZjX1dpSUJHcHlhLU5RZTZkRjM5S21RMExicm5iLW1YbFdnc1pGWjljS1lo0gGGAkFVX3lxTE9TQU9JaUNYazdTY0Y3eWZpNk9mYnlTQmZxNHRjZEIzc25zbl9nU180dkJ5NHJjZTdRTGF1ekUwOU5PN3pnbEVmclV6el8xU0diQXpiaVJ1WHU4dTc4c1JUSDFSZ21jZWZRbUlFbGFlOWVQZXlBMVRoVUFkOHd1ejhsSXNQcGFaQWdkX1c2bnV5OHRfZkF5YUxhQlVmZkhjd3Q5Q2F3UUR0R3hlaVZuVDhpY291a3dRLWlrUFpwLUdwdjlrUmRWTmRHV19Wek1NUlI4MWZaRnh4Um1mQmlRbUQ4OWJFVVpoZ005MHVKOGQtRWFJVDRNQ1JuQUpERFJFZm1lUXktQ1E?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPVTB2SmtLUXU3c0k5U0FWZVFrdFNqLW1EOHVfVTF3WEhXRVF4aHJVOFA3cWN5cGxnYWQ4dU1iOWRjbkpnYTQ4WE5EZkh0TWN2NWU1TVNBZ0tLU2Zyc2JQZzNVSmxUUGZjMVJzNkprRnNoT1lSWXZjX1dpSUJHcHlhLU5RZTZkRjM5S21RMExicm5iLW1YbFdnc1pGWjljS1lo0gGmAUFVX3lxTE1SUVd6S2hvWnF6eEVDRjZWUC1sTllEZ1puNE1hZ3lSbk85TEozZURDYUlSTzhUUi0xQ3BZbDFRYzVVOFhLTzdadER5VnNlb3AwVTVPN0o2U3pGb0poTEQ4bkVnMmtnekFTTDRtdkp5SzU2V2NjaVk3REt1RlVvaS1LeDV0aDlFZzNpTXNFOVBKTTZmaWNOT0paNFlTVzVmN19JSWdIbkE?oc=5"
     },
     {
-      "id": "news-e9437a5d",
+      "id": "news-4aa968a3",
+      "cat": "industry",
+      "src": "immigration.ca",
+      "date": "Apr 08, 2026",
+      "title": "Canada Extends Work Permits to Support Quebec Immigration Transition",
+      "summary": "Canada Extends Work Permits to Support Quebec Immigration Transition immigration.ca",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPeDRnZGxKTmZtd0RUc3RiUmZ3aDlYV0ZTTlBBemZOY3hsd1JMZFVUSmtuZkRfN1pERTIycVd4cXdqOGl5eTNvVDZaRmRqU3BGa3lUb1hxUS1zOVRMRWQzUFcwWXp6a0ZSaUl3OGpqM2dKaGdQdTFRWmN2MzdRTldLb0t6dnhoQlVTaHAzSnBaTVM1WU0xQ3d3?oc=5"
+    },
+    {
+      "id": "news-c0d55445",
       "cat": "ircc",
       "src": "CIC News",
-      "date": "Apr 07, 2026",
+      "date": "Apr 08, 2026",
       "title": "Canada holds first Express Entry draw under new Trades category",
       "summary": "Canada holds first Express Entry draw under new Trades category CIC News",
       "tags": [
@@ -105,13 +105,13 @@
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNVk9acURIWnBkT29IcldiV3c3aU1qT09VYUlMN0ZOWWhPd2h2SDRlZGhrLXFHakkwT3l1bkJXWGgyaVNsbFJZYTdOelBPZ0JzNXgyVnRHbjVIVVRiazk1SUZhN2I2d1dJaVhUdzVkR3RGOGwxZnFwaXUyRzA2YXlVeWxZOWs5SnE4SXI3U25lRnUxZGJaVzMtRWdQdHBlWC1INTVmX2xIRGtIWHlq0gGSAkFVX3lxTE51QzRjeHh0S01LUGVEeDU0ZUJBazhDZlV5Z0xvQXB0aGdMT3YyUDVVVFJsMUtFb2NDX0NzdXU5a1lGVDUtM1RydmtRYU9ZREV2dTFnNnZhSmFwZHBDWDJoeVo5UjB4eFRYWGtGc1Z3LU5fRFdxaC1BekhhTW91MFhBWnJNVlZyaGtPM2c5akE5N3JsYV95ZmJiTmZtbzFQZUdjX2xkVFMwaXRUZUFHRzRaNGM2OWZXbUNuMnc2amoxZUNOVGZXRVhDdkNOSFBNZDJyanZ4NUtsd3dZWFNDOUtFNUs3ejF6ZWZSNkJfbkIydTF2NXAzOFZYZkRibUt1TzZSNWRwcnBpYlpNWTJRcE1MTGc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNVk9acURIWnBkT29IcldiV3c3aU1qT09VYUlMN0ZOWWhPd2h2SDRlZGhrLXFHakkwT3l1bkJXWGgyaVNsbFJZYTdOelBPZ0JzNXgyVnRHbjVIVVRiazk1SUZhN2I2d1dJaVhUdzVkR3RGOGwxZnFwaXUyRzA2YXlVeWxZOWs5SnE4SXI3U25lRnUxZGJaVzMtRWdQdHBlWC1INTVmX2xIRGtIWHlq0gGyAUFVX3lxTE1RYTdrRUxobGltMjNOSWU5TEE4bU5xdEpnclZPVkJfa2kzRGlxdXItRk5iTXdSVnV6c0pCQmExTFE3c1d3X3ZmSEUxWG9iZ2QzZ0R2RmhILU5QOTg1QW02dmM2LUdOaHBhcWZjZDZlTzEtMV9kVXZ0V1hzdkJXTF9JUkItQlVhcU0xRndQSFQtb1FONmN2cm54TFNYWTlydkdEakRhdURFalhtdERGSmpGZXc?oc=5"
     },
     {
       "id": "news-066e8b31",
       "cat": "ircc",
       "src": "VisaHQ",
-      "date": "Apr 07, 2026",
+      "date": "Apr 08, 2026",
       "title": "Canada to Raise Permanent-Residence Fees on April 30 2026",
       "summary": "Canada to Raise Permanent-Residence Fees on April 30 2026 VisaHQ",
       "tags": [
@@ -123,32 +123,32 @@
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbHo5dktZSzlUYURoQnZUcmxSZ0JLVnU0d0xBMnRGdGJ2d0NCZlYyUDNHQTdGY05tMVFNWENhRjJVMmV1d0ZsemxDbk5RX2lCUXJ0MkJTM3lPWjRRWkJDdkc1bjZHSm5WUXBGUjdZNFJGU0djX1UxVnVnTHJvTFpRSkdaMzRpQTJOU2tBdkhPMTNMQkxSNTl2aE9vcEdpZ0pmZXc?oc=5"
     },
     {
-      "id": "comp-0677c78d",
+      "id": "comp-906bdc3b",
       "cat": "competitor",
       "src": "Moving2Canada",
-      "date": "Apr 07, 2026",
-      "title": "Low-wage LMIA rules changed on April 1, 2026: What employers need to know",
-      "summary": "&#160; &#160;",
-      "tags": [
-        "Moving2Canada",
-        "Competitor"
-      ],
-      "urgency": "low",
-      "url": "https://moving2canada.com/news/low-wage-lmia-april-update/"
-    },
-    {
-      "id": "comp-82e58b8a",
-      "cat": "competitor",
-      "src": "Moving2Canada",
-      "date": "Apr 07, 2026",
-      "title": "Q1 2026 Express Entry Roundup: More Draws, More ITAs",
+      "date": "Apr 08, 2026",
+      "title": "IRCC Increases Compliance Checks for International Students After Auditor General Report",
       "summary": "New content from Moving2Canada.",
       "tags": [
         "Moving2Canada",
         "Competitor"
       ],
       "urgency": "low",
-      "url": "https://moving2canada.com/features/q1-2026-express-entry-roundup-more-draws-more-itas/"
+      "url": "https://moving2canada.com/news/increased-student-compliance-oag-april-2026/"
+    },
+    {
+      "id": "comp-d66899cd",
+      "cat": "competitor",
+      "src": "Moving2Canada",
+      "date": "Apr 08, 2026",
+      "title": "64.8% of Newcomers Find Jobs in Canada Within 6 Months: StatCan",
+      "summary": "New content from Moving2Canada.",
+      "tags": [
+        "Moving2Canada",
+        "Competitor"
+      ],
+      "urgency": "low",
+      "url": "https://moving2canada.com/news/64percent-newcomers-find-jobs-in-canada-within-6-months-statcan/"
     }
   ]
 }
