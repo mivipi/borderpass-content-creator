@@ -1,12 +1,27 @@
 {
-  "updated": "Apr 09, 2026 08:21 UTC",
+  "updated": "Apr 10, 2026 08:21 UTC",
   "count": 10,
   "items": [
+    {
+      "id": "news-ca953da4",
+      "cat": "ircc",
+      "src": "canada.ca",
+      "date": "Apr 10, 2026",
+      "title": "New immigration and asylum measures from Bill C-12 (the Strengthening Canada’s Immigration System and Borders Act) have become law",
+      "summary": "New immigration and asylum measures from Bill C-12 (the Strengthening Canada’s Immigration System and Borders Act) have become law canada.ca",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxQSGIxYmFaZG4tamFERU5GeGFBUlJydGdNdW9Xc1hQOFpmMURNUEh2TTY0Y3hLZ29UXzUzVWE4clBaZDEtaUpUeEc0Z3RJbzdqMWN5SEVUcDFwcndqZ0k3a2psTGFLT2J6OHVMMV9nSFNyQVZlNlhFeGppdm9kcUdnZ1VGWWNWaXV6ZWlJNjhvbWc4QV93U21PajBLSl9lWndGcWhfdkZyRUZFUjFOTGxTdGpycFdtUGNLNjJVVXBaRHhQTlJrT01KQkdGclo3OWh6V25UN3hCZUo5NUhSOGdfbDZOS2ZIck5EMEVMbGVxajBLLWNEekhkVjJlcU42eVRoSm9KVmlGUUhnc285emlFaHRGUHRTVHJ1OEctUzZQSUgzX3d2ek5jdVh2RQ?oc=5"
+    },
     {
       "id": "news-50ed493e",
       "cat": "ircc",
       "src": "canada.ca",
-      "date": "Apr 09, 2026",
+      "date": "Apr 10, 2026",
       "title": "Canada prioritizes top talent in 2026 immigration Express Entry categories",
       "summary": "Canada prioritizes top talent in 2026 immigration Express Entry categories canada.ca",
       "tags": [
@@ -18,55 +33,55 @@
       "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNU2tQTmpZN1AwZGpYQ1NueUdveDdVMUtNR3Ryc1c1QlU3NV9adzVFcFNqakw4U3NrbXNqRDVyTTVJYURJanllQ0hxSmRHeG5oWVM0dFNqNU44eGNETlhpTm9lbjZaMXFJOTRFMFE4dllnYWM5WVJqRndxYUpJcU1hVC1ZaGgyRXhJNUJxOFJtcExPVTQtaE9MWVkzZzZlcVpLQnpvUFM0elNFUG5JR0ktUmszckNMWXFjQ1NvQVJ5ZHFFRVFVU1J1eGdrWHVFWGp2cTlENEdsZ3gwRTgybVhCUDZqREU?oc=5"
     },
     {
-      "id": "news-b42309c2",
-      "cat": "ircc",
-      "src": "canada.ca",
-      "date": "Apr 09, 2026",
-      "title": "Canada launches measures to support those impacted by domestic natural disasters",
-      "summary": "Canada launches measures to support those impacted by domestic natural disasters canada.ca",
+      "id": "news-ab36d1c4",
+      "cat": "industry",
+      "src": "CIC News",
+      "date": "Apr 10, 2026",
+      "title": "Canada moves to expand work authorization for international students and graduates",
+      "summary": "Canada moves to expand work authorization for international students and graduates CIC News",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPZVhRVmdvVDhvSnE4WlVhOU5Eb2RCeG5kX2ZkRGdLa2MxX0s4cWdWd0FvRlQtaWNYTG5JeEdERS1TY1IxM0R3a3RGRV9kWmY1ajFyRjNtWElFWGMzUG5iMXpzRU5qM0c0dFRtSVRSVEpTRzloaE1rRlk4UlRMS2NkQU1jRk41RHpwdDhVRUhCQ0dXR3l2UzVjNkZRelg1U1hCZGgzY1pCaVdkWnppQVBTZnBFQWx4Sk9pZzhnaF9pTFpSRU1zSXE1Rm9nTGFrTWhPNG1veFdrRjlfWGNmdWVJekxpOTBpSGl3cWlqRA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPZmhISF9pdlBzWkpTd0tnMVBLM1RnbzZxNkZvYUlLQ01hcGVXeDhqMEJOREFjQWdHcDBsZ2lRSzUxLTNqZGxLbFZ2enJWVzZjRFdYaklabzdjZGlWQmJ5cUl4Z2RCV3c3NGVndUhHUzlhN180VmxuRjIzR1l3RGtiY3BhVUtnSC0zMXM3ZzVPaEJ2bHByMktKcndmUXN0NXNLaE9YaU9qSXM4YzU2a2ZhVnUxZUh4VDc4UTc3MWg0WHZ2YnJiSFHSAcsBQVVfeXFMTU5Mei1kRXdfMTR3dG9vSjVVY1pXbFFOb2RhYXhYaWFPMDJ2bTB4VVM3Vm1oNTNSX2tmbnB6X1o2ZEw2R005SHNqMElUQWtmb3VldVZ6ZDBTZW00YVZFSUxfdnF4TVpfNkhtck1uLXpDWEJORUZFNmhXeEVMZTZWWmpoRTBoWVpreklPMHc5SHNlMkVVWGhaQUtrMnRtakt0em9telNERUxLNEpxYkhVWTdId3NLX3R2and2SlFOcVduYjZhUkdzTG1OOE0?oc=5"
     },
     {
-      "id": "news-ae6fd7c2",
+      "id": "news-a83f476b",
       "cat": "industry",
-      "src": "Times Higher Education",
-      "date": "Apr 09, 2026",
-      "title": "Canada to stick with ‘flawed’ international students caps",
-      "summary": "Canada to stick with ‘flawed’ international students caps Times Higher Education",
+      "src": "The PIE News",
+      "date": "Apr 10, 2026",
+      "title": "Canada considers easing work authorisation for international students",
+      "summary": "Canada considers easing work authorisation for international students The PIE News",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNcmFNWFk2WGJwRVhmcldCWktXZWd0OHoxdWU4TzViTlBtSjdGdjc0eko0d0o1MUZ4RFR3ZUg4NmY2N0hiOGxjOFZiS0c4Tm9uRUVBOE9URF85SVdjQ1E2VVh2WnVqd3VZVW9PNkxFUWQybGlpaTUyUUlOWWlucDRBSHBqZzk5bXZOX1FZbzZqSzhjUQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxON0U5a1FaVWV3S2V4VDVqRVRpWFFOcmJHcy13SWRiT3ZXeTI5ZFF0ZU5kZkw0UDJHNTBJRUdDVE9vdFhGZTg2Y1lsRFE2bEc5ckhyY0p5WHJvZUp5UW13bzRkM3lqVF9DaDdfNTdEMlROWmFsTXFmcGF3amQydklVemF2eHZ2Ul9oZzdySTZLeENrQ0NpazY5LQ?oc=5"
     },
     {
-      "id": "news-2fac5f00",
+      "id": "news-e692f1f9",
       "cat": "industry",
-      "src": "StudyinCanada.com",
-      "date": "Apr 09, 2026",
-      "title": "All About: Studying in Canada as a Student from the United States",
-      "summary": "All About: Studying in Canada as a Student from the United States StudyinCanada.com",
+      "src": "VisaHQ",
+      "date": "Apr 10, 2026",
+      "title": "Canada Enacts Bill C-12 Overhauling Asylum and Immigration Compliance",
+      "summary": "Canada Enacts Bill C-12 Overhauling Asylum and Immigration Compliance VisaHQ",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQYUFGUnFaYm1lNTc3MEpLZ05RTmk3UG1KdU9zbk14Q29pa3lJM1hJQXktN0tkVmd0eHRJRnRjR3ljbDNwVm4ybFU1TkotUzFYT0tKQ3NrZTJpZEhJUXAzZm5vR0lOVzR5c1R4TWM0ejZld29UT3g1YThRY0tzdnM2UzFDVXhRbDZIZlJnOGV1MHlScmhId3dFQ2hUYU5VV0gzOXpCRm9UTTF1SHlYcTVBRnRtakJ6RkU5bkE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSGh6WVBCNXdQc0dfZ25BMV9lcE0xR2JkWjhDcGFDUGtUSmVJamc4VGxHQjh3dTQ4XzlPZmh6UDdCTDlxdnY0aVE3RVNFMmUtcGR3Y0tNbUZaMlNMOTBnTGRxM0xvVVVNTi02UkQ0ejh3RFhMdHUyTmY0ZkZPUnZmVXpYX0dMb0lWd250MUJWcUZ6UVU4RzhMU21SMHZqeXJSaTZMal9VSTM2VmhyLTB0Njhn?oc=5"
     },
     {
       "id": "news-f984d3f8",
       "cat": "industry",
       "src": "CIC News",
-      "date": "Apr 09, 2026",
+      "date": "Apr 10, 2026",
       "title": "Canada’s new rules are fast-tracking US healthcare workers",
       "summary": "Canada’s new rules are fast-tracking US healthcare workers CIC News",
       "tags": [
@@ -78,25 +93,10 @@
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOeDc1UVZocmFieUNwcC1Zc2FtOTVubl91eHVxOVluRUFUUnQ1YnZaZ0lndDExTmo4R25xendaUUowOU1TeUkwR3dObWNsb3JNYm5lSG1VTFZyZlgtd0xnX2hHQzNBazBQVk9PTUZXR2RwQnFqNHQ3dE5WZE9TSHhGUVdiTk9JNko2SFRSTEVVZFN4STYyeHlWUUhVYUw5TGZFVHRIcXAteUxIR1HSAeQBQVVfeXFMTWRLdHBpTHhVR1RNWEN0dUJHQjlHM1NkMmtBSFVod3hMb1VzeTc3bVpiby1lTmJSMW9VX2FFM0dPNHdhUXB1a0NDWk54TFF5Sl9oQlB0ZHcwMjJ2a0w5UTZiWVc1eTVUT0ZrODdoTFZkcEV1Umc1QzN1OUgtaVBXQl9GZ1ZEaG5rQVdQalVXclN4MVdoUGVWZVhuRXNibWZMZ1BDNXU2WDZpN1luMGdhQzV4ZEdackotWC14SXR0eDluTE5iUjRRalJtazZuUk9FTFR3WnNTQzE0OXlMNExDWWJaLWNH?oc=5"
     },
     {
-      "id": "news-4aa968a3",
-      "cat": "industry",
-      "src": "immigration.ca",
-      "date": "Apr 09, 2026",
-      "title": "Canada Extends Work Permits to Support Quebec Immigration Transition",
-      "summary": "Canada Extends Work Permits to Support Quebec Immigration Transition immigration.ca",
-      "tags": [
-        "News",
-        "Canada",
-        "Immigration"
-      ],
-      "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPeDRnZGxKTmZtd0RUc3RiUmZ3aDlYV0ZTTlBBemZOY3hsd1JMZFVUSmtuZkRfN1pERTIycVd4cXdqOGl5eTNvVDZaRmRqU3BGa3lUb1hxUS1zOVRMRWQzUFcwWXp6a0ZSaUl3OGpqM2dKaGdQdTFRWmN2MzdRTldLb0t6dnhoQlVTaHAzSnBaTVM1WU0xQ3d3?oc=5"
-    },
-    {
-      "id": "news-d635e535",
+      "id": "news-db709e5f",
       "cat": "ircc",
       "src": "CIC News",
-      "date": "Apr 09, 2026",
+      "date": "Apr 10, 2026",
       "title": "Canada plans to retire current Express Entry programs, launch replacement",
       "summary": "Canada plans to retire current Express Entry programs, launch replacement CIC News",
       "tags": [
@@ -105,28 +105,42 @@
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPX1hsQzFMci10MEdDa0xaenRqbGJuN1BnXzlSZktDQUFYNy1CVVlvMGFXTFAwYTc2N1dQOVZhTmZ6VUhIZlQ5clMtT0NrdTBnMkVPdG5zb0F1NjVvV3J1NnNzSE9JbmdtSHBIZ2hDWnowWXhjYzhyTjkyNlJ6Q2pYbVVZQVlBSmJhdVQtRkJDRWZQU09fNjJXQXRqUGl0bTZjWi0yQzlfUWZLZzF3N294NThPcGRoOUhX0gGIA0FVX3lxTE9ET2JBbERjcFowemt3YXZZUFctSEZUWm82d2VRX0VoS2czTkg5aUFibzBzOXAwQmI5OTBfRlU1X3ZDTHJwam05c1Y3Y3dHMF8xTTJOcUFBZWVuNkJvSWNILUZfTTB6NkZ6ZVVkRGhFeHo0ZkhJZlpmUWdDUzZySnlib2VORGY0RWkweWJTMUx6WWpNUVlNZWQ0WnpkR1pLX1daSEk3UmlLZm5aY3dmLVV6Ym9KMzNfdWpfY2s1bXlCOHZxZ1JXZGRJTEpQdmxjN0xhZHk3XzFuczJRVDA0azNKS3Q5YlpScy0tZDNEY3pCRVI4OGhCU3ZDSUJrcVExT3BsVU1GTEJmTmh3bEVWVExTMmFxcTZLSlJyUzBpejhyVl9fRXJlOEFyTzJpTVpIOVRYTzdFTVR4UVY1TklfUDJua0V2bDlkcm52Q1FpTFYtNGljaURPaWJvSHZGcUtwVFR0NFNXNVdOcEZmZ3BYZEh0WUNnX2w5dnhFYnFqWUMyTXdPeHRwRWta?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPX1hsQzFMci10MEdDa0xaenRqbGJuN1BnXzlSZktDQUFYNy1CVVlvMGFXTFAwYTc2N1dQOVZhTmZ6VUhIZlQ5clMtT0NrdTBnMkVPdG5zb0F1NjVvV3J1NnNzSE9JbmdtSHBIZ2hDWnowWXhjYzhyTjkyNlJ6Q2pYbVVZQVlBSmJhdVQtRkJDRWZQU09fNjJXQXRqUGl0bTZjWi0yQzlfUWZLZzF3N294NThPcGRoOUhX0gG-AUFVX3lxTFBBUk9aMjZsTWMwUkJBc0RKQTY0V1p4MnRpeDBRNzhjeEVyS0hOLTJTaXNjOE5NUFVDSG5uM2RPeDZRWF80V1pubmhTU3VFc1duWWlqREtlazg5MHRlbGVnbXFhLWU3ZzVzNk1QZnQzTGIwNHpfdU9iOWtkYVRwYUItUnN6LUN4UjZVckFDVzJSMGhWRklIMUNtbmt3Zm9GZDVzMHVsVk1SVnREbTAzcXJKdkZJaFJtVHYyWmZ0REE?oc=5"
     },
     {
-      "id": "news-2ea40e95",
+      "id": "news-2c660c7d",
       "cat": "ircc",
-      "src": "The Economic Times",
-      "date": "Apr 09, 2026",
-      "title": "Canada plans to merge key Express Entry programmes into one new pathway",
-      "summary": "Canada plans to merge key Express Entry programmes into one new pathway The Economic Times",
+      "src": "VisaHQ",
+      "date": "Apr 10, 2026",
+      "title": "IRCC Signals End of Current Express Entry Classes, Plans Unified ‘High-Skilled’ Stream",
+      "summary": "IRCC Signals End of Current Express Entry Classes, Plans Unified ‘High-Skilled’ Stream VisaHQ",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNc3Y3MEEzWVB6WjRZcVZPektTcTUybmw5ZjFEVUVSeFl5RjF1aXY0dTNzR1c5Z1k3OTVaN2duSm9qV3d6UmpNeWVwZzlOc3NzUkRweXY0eE1VT2RmN3dxdWI5QkcyUXllbFEtN21HTFhXdndQRlg2RFR6aThhQ2xZSGx6YnY1WTFUSVZmbnQxUmlHaXlsdDUxLVdIcnhEdmpqWjFDejB1eGhvb285X012Ynp3ck1YRUVQaDJha0U1Y05pSGdETjhSVTZUTFQwV0hBQzZSSEVTLS3SAdgBQVVfeXFMTXN2NzBBM1lQelo0WXFWT3pLU3E1Mm5sOWYxRFVFUnhZeUYxdWl2NHUzc0dXOWdZNzk1Wjdnbkpvald3elJqTXllcGc5TnNzc1JEcHl2NHhNVU9kZjd3cXViOUJHMlF5ZWxRLTdtR0xYV3Z3UEZYNkRUemk4YUNsWUhsemJ2NVkxVElWZm50MVJpR2l5bHQ1MS1XSHJ4RHZqaloxQ3owdXhob29vOV9NdmJ6d3JNWEVFUGgyYWtFNWNOaUhnRE44UlU2VExUMFdIQUM2UkhFUy0t?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQSG56akU0WFRudDExN0tObzhPVXlQNDF2RGFKbzg1ajJRZU0takp4Tm1kRWFfU1lSYXhiSHJZbXYzbUJQeDVQNENRdlJfYk9vaUVYUi1QVGNtaHp1Nlo2YTNvUnZ1Wmo3T21nWFNJcVpqSzhJc19URVJxOTI3ZHVObl9KdFBvNjk0QVJmUU9TRk1hdFZMMHNLRFZ3Z3pxbWVwbjM3SS0zQjRXdldlRUpOUl9NWS1vLVJTUWxWanl2NzRwcHg4?oc=5"
+    },
+    {
+      "id": "comp-f0281448",
+      "cat": "competitor",
+      "src": "Moving2Canada",
+      "date": "Apr 10, 2026",
+      "title": "SIN@Entry, Faster Credential Recognition Planned for Newcomers in 2026-27",
+      "summary": "New content from Moving2Canada.",
+      "tags": [
+        "Moving2Canada",
+        "Competitor"
+      ],
+      "urgency": "low",
+      "url": "https://moving2canada.com/news/sin-entry-faster-credential-recognition-planned-for-newcomers-in-2026/"
     },
     {
       "id": "comp-234cb1ef",
       "cat": "competitor",
       "src": "Moving2Canada",
-      "date": "Apr 09, 2026",
+      "date": "Apr 10, 2026",
       "title": "Healthcare Jobs are Growing in Canada. Can Newcomers Actually Access Them?",
       "summary": "New content from Moving2Canada.",
       "tags": [
@@ -135,20 +149,6 @@
       ],
       "urgency": "low",
       "url": "https://moving2canada.com/features/healthcare-job-canada-newcomer-2026/"
-    },
-    {
-      "id": "comp-67cb82d0",
-      "cat": "competitor",
-      "src": "Moving2Canada",
-      "date": "Apr 09, 2026",
-      "title": "IRCC to Replace FSW, CEC, FSTP With Single Federal High Skilled Immigration Class",
-      "summary": "New content from Moving2Canada.",
-      "tags": [
-        "Moving2Canada",
-        "Competitor"
-      ],
-      "urgency": "low",
-      "url": "https://moving2canada.com/news/ircc-to-replace-fsw-cec-fstp-with-single-federal-high-skilled-immigration-class/"
     }
   ]
 }
