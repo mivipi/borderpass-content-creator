@@ -1,12 +1,12 @@
 {
-  "updated": "Apr 16, 2026 08:27 UTC",
+  "updated": "Apr 17, 2026 08:26 UTC",
   "count": 10,
   "items": [
     {
       "id": "news-ca953da4",
       "cat": "ircc",
       "src": "canada.ca",
-      "date": "Apr 16, 2026",
+      "date": "Apr 17, 2026",
       "title": "New immigration and asylum measures from Bill C-12 (the Strengthening Canada’s Immigration System and Borders Act) have become law",
       "summary": "New immigration and asylum measures from Bill C-12 (the Strengthening Canada’s Immigration System and Borders Act) have become law canada.ca",
       "tags": [
@@ -21,7 +21,7 @@
       "id": "news-b42309c2",
       "cat": "ircc",
       "src": "canada.ca",
-      "date": "Apr 16, 2026",
+      "date": "Apr 17, 2026",
       "title": "Canada launches measures to support those impacted by domestic natural disasters",
       "summary": "Canada launches measures to support those impacted by domestic natural disasters canada.ca",
       "tags": [
@@ -33,40 +33,55 @@
       "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPZVhRVmdvVDhvSnE4WlVhOU5Eb2RCeG5kX2ZkRGdLa2MxX0s4cWdWd0FvRlQtaWNYTG5JeEdERS1TY1IxM0R3a3RGRV9kWmY1ajFyRjNtWElFWGMzUG5iMXpzRU5qM0c0dFRtSVRSVEpTRzloaE1rRlk4UlRMS2NkQU1jRk41RHpwdDhVRUhCQ0dXR3l2UzVjNkZRelg1U1hCZGgzY1pCaVdkWnppQVBTZnBFQWx4Sk9pZzhnaF9pTFpSRU1zSXE1Rm9nTGFrTWhPNG1veFdrRjlfWGNmdWVJekxpOTBpSGl3cWlqRA?oc=5"
     },
     {
-      "id": "news-f1cb30c2",
+      "id": "news-2417d752",
       "cat": "industry",
-      "src": "National Post",
-      "date": "Apr 16, 2026",
-      "title": "International student in Canada on expired permit allowed to stay despite attempted auto theft",
-      "summary": "International student in Canada on expired permit allowed to stay despite attempted auto theft National Post",
+      "src": "University Affairs",
+      "date": "Apr 17, 2026",
+      "title": "Committee urges penalties, random audits to crack down on foreign student visa fraud",
+      "summary": "Committee urges penalties, random audits to crack down on foreign student visa fraud University Affairs",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNcHBLTDhfMTlKaGk3NGZmUGdGbDlmR3V0Y0ZSUklYYXF6Vl95NFhCOGVLS3JQalBsM3J5Z05hRU5qNGlCSmtYUVRtR0cySXpsekkzMVdoSVNhOGpsZ3p3TzFablFMVjRXVml5YmdqbnNBQ05FN1VMbTdlUzlPckRnbW5xTDFHbzFzSE9VQk0xOUdOZlJpUmtUWUhDd2RIZW1SWXI0V1BFbDNlY2ZfZVA2Rmlxd2Z3SHNRZG5TU25PclZaX3hyMEFpRmJhTQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNQXVabXM3VENPckw0aHpmeFNxVmpoX2k4TktxRktqM3dweF8zUnlrMFc4NF9oZTZWaEhoazFKS3Job2x6MkRWLXBQcmJmdGNxV0Y4Y3lFd0F0VXVGS085MVIyRHZXM0RNX2hya2JoMnBKb0dEYm5yVE01Si00Nm5VdlVEZ0JzQ09UUWxLRGdSUE1yN3BqeUhwNnlYRERZZDV5ckhvY0JOV1BhbWROQjB6SWI1c28yV2dxMFE?oc=5"
     },
     {
-      "id": "news-9beaee45",
+      "id": "news-3c20db7e",
       "cat": "industry",
-      "src": "immigration.ca",
-      "date": "Apr 16, 2026",
-      "title": "Canada Sees Sharp Drop in International Students as Study Permit Caps Take Hold",
-      "summary": "Canada Sees Sharp Drop in International Students as Study Permit Caps Take Hold immigration.ca",
+      "src": "ICEF Monitor",
+      "date": "Apr 17, 2026",
+      "title": "New international student permit approvals for Canada fell below COVID levels in 2025",
+      "summary": "New international student permit approvals for Canada fell below COVID levels in 2025 ICEF Monitor",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbllncnZlUjAwbWQxT1FhV2VWNDRDQVhwMlpqZGpjUzJ3NzZqaU1TYkFyY1NqUTkzSnpwWlVzT284aU5rcWRnSl9VVmNNTHJUc0g0ZFZybkFRNVI3RkxqRWtNSHhVVWhvU3Z6ekhsSmVBcDJESUQ4d2ttVjV5cFdLTGtuUWphblZsWGVhbGZRUjlGSFVSQmtrZkhBZW1KQzBIUC1OSmZ3?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQXZUOHBVYWdVOXkyT1gzU0xneC1hWGhTQlhsSktTTk9tUlFnRTh4T1RrbTRTeE8yd0dDbXZNcHBnNUNWTmUzMFN4NUduRDFrZlgtWk42WHlNSEZTSkxzUkFpdDFaaDNpVEtxRmNBN1h3ekVGaXdSQnlDcTI2Yy1uUTBwOW1JRks5Y1FNZ19QbUtDSFh0QUVoUmhhUGVqZkZnTFJRME1fb0xzTTkxYVRVaENDS2plQnpRS3kw?oc=5"
+    },
+    {
+      "id": "news-a8362744",
+      "cat": "industry",
+      "src": "Crown World Mobility",
+      "date": "Apr 17, 2026",
+      "title": "Immigration weekly update: April 16, 2026",
+      "summary": "Immigration weekly update: April 16, 2026 Crown World Mobility",
+      "tags": [
+        "News",
+        "Canada",
+        "Immigration"
+      ],
+      "urgency": "medium",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPYW9oLVhwTTVtTGdmRmZrRVFROWxwSEViR2lialpELUlqYTBxUENtT3R5bzAwWUVRN19GejY0OHh3Q1o2bWlvYkczZzI0TDlVQlhPU1RWZlJlck9TV1h1dmxKWC1qUlpvX0dYMkNXUHBhaDVXSWxweVAyZmtSVVFRaEhaR1pXVHVfYW5oV3o5cw?oc=5"
     },
     {
       "id": "news-d7a4f291",
       "cat": "industry",
       "src": "Fragomen",
-      "date": "Apr 16, 2026",
+      "date": "Apr 17, 2026",
       "title": "Post-Graduation Work Permit (PGWP) | Staying in Canada Post-Graduation",
       "summary": "Post-Graduation Work Permit (PGWP) | Staying in Canada Post-Graduation Fragomen",
       "tags": [
@@ -78,25 +93,10 @@
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTGs1U0I3WktIbnZJLVlIazBIMFA3VTZKNmk4RXdTZEQ2RGJxT2NJcFpoMXh5Nk5ZR3hBcUF3NW5reDl4ekRLN0ZOV2x1UEw4cUQzb1lWeFBHcjh5cmxpeFpBOUl6aEgxaHl1aG1vanJlWkhuWkI4UWpuY0xFR3BZZ3dnTGNUVnMyeVhyb1BTY1VWbHJWeThCeklZSTZzX3ZlQ3hScFYtckRtWWZw?oc=5"
     },
     {
-      "id": "news-5f1a8c28",
-      "cat": "industry",
-      "src": "CIC News",
-      "date": "Apr 16, 2026",
-      "title": "Canada extends pilot granting LMIA-exempt work permits",
-      "summary": "Canada extends pilot granting LMIA-exempt work permits CIC News",
-      "tags": [
-        "News",
-        "Canada",
-        "Immigration"
-      ],
-      "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPVTB2SmtLUXU3c0k5U0FWZVFrdFNqLW1EOHVfVTF3WEhXRVF4aHJVOFA3cWN5cGxnYWQ4dU1iOWRjbkpnYTQ4WE5EZkh0TWN2NWU1TVNBZ0tLU2Zyc2JQZzNVSmxUUGZjMVJzNkprRnNoT1lSWXZjX1dpSUJHcHlhLU5RZTZkRjM5S21RMExicm5iLW1YbFdnc1pGWjljS1lo0gGmAUFVX3lxTE1SUVd6S2hvWnF6eEVDRjZWUC1sTllEZ1puNE1hZ3lSbk85TEozZURDYUlSTzhUUi0xQ3BZbDFRYzVVOFhLTzdadER5VnNlb3AwVTVPN0o2U3pGb0poTEQ4bkVnMmtnekFTTDRtdkp5SzU2V2NjaVk3REt1RlVvaS1LeDV0aDlFZzNpTXNFOVBKTTZmaWNOT0paNFlTVzVmN19JSWdIbkE?oc=5"
-    },
-    {
       "id": "news-8500e38a",
       "cat": "ircc",
       "src": "CIC News",
-      "date": "Apr 16, 2026",
+      "date": "Apr 17, 2026",
       "title": "Provincial nominees receive invitations to apply for permanent residence",
       "summary": "Provincial nominees receive invitations to apply for permanent residence CIC News",
       "tags": [
@@ -108,47 +108,47 @@
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNek5pV2xYSWw0eGpyaXVjY25mVFdLXzVwQXE2WnhsVzlEempPR0dHTWpyRFdzRjlVUS1HRzFheExvNEd0bS1GVFpSWVZuQmxPSzZFTVdhRHhRRllzdWoyRms1RWstY2JWcmFhNHAzNjVlRGlKbmpzc2xjMl91bjRkaHJXUkhVNDhDSFdpeTJ4ZTF2eWRuczVz0gH8AUFVX3lxTE5lRFNsQUZVV1ZzRjFKd2V3b3FSck1FMG0xb0dhTGZsZC1UOE5GeG9oOWdCc01tdVliMWVOZ0pEUDdHM09Ud3VPcVVOalRSX0w0bE5ZclUzM2ROb2hVOHctTVUzbV9ucEppd0FoVkVyaTdyZkVzVXFzMGIyenVnem94TnN5T1NLeG9ZZEFJOTNyMm9ac2l2dFY4SzNSVncyOWhJUkJyeHFvY3pDS25qVVhYS29SVmJGRW5kclQtMEdfelYwN1FrT3dpTHZxOGFsbmhycG8wbDNndWxIYktyNEIzRC1DZFg4em1IOU1JZ1dkbzJiWk81MklMSWZWcg?oc=5"
     },
     {
-      "id": "news-e0ccf6e2",
+      "id": "news-50ed493e",
       "cat": "ircc",
-      "src": "VisaHQ",
-      "date": "Apr 16, 2026",
-      "title": "IRCC invites 2,000 Canadian Experience Class candidates in April 14 Express Entry draw",
-      "summary": "IRCC invites 2,000 Canadian Experience Class candidates in April 14 Express Entry draw VisaHQ",
+      "src": "canada.ca",
+      "date": "Apr 17, 2026",
+      "title": "Canada prioritizes top talent in 2026 immigration Express Entry categories",
+      "summary": "Canada prioritizes top talent in 2026 immigration Express Entry categories canada.ca",
       "tags": [
         "News",
         "Canada",
         "Immigration"
       ],
       "urgency": "medium",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQazZTYzJfSzhWMkliZGpPVldQbEVvWXNTdzlVX050OFNOQVVFMW1nUnp6NnRLWXJPbkJLbzhrOW9PcmFWYlJqYmJaTnk2UkZib3B4Rkt2Z1JGSm9ZZ1pHRGc4aFZuVFEzdnJyTXlpOUJLdnpnZnJCaE9IcmN6NDFwREdfWWhscFNWdW1fZ2lFYUktaHNFOHlJbnhtT21zN2JzLVpNWUtSR2oybV9Kb3Jnb0ZDWmM1YnVLRHpfblpGTGNWWlQyajNJ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNU2tQTmpZN1AwZGpYQ1NueUdveDdVMUtNR3Ryc1c1QlU3NV9adzVFcFNqakw4U3NrbXNqRDVyTTVJYURJanllQ0hxSmRHeG5oWVM0dFNqNU44eGNETlhpTm9lbjZaMXFJOTRFMFE4dllnYWM5WVJqRndxYUpJcU1hVC1ZaGgyRXhJNUJxOFJtcExPVTQtaE9MWVkzZzZlcVpLQnpvUFM0elNFUG5JR0ktUmszckNMWXFjQ1NvQVJ5ZHFFRVFVU1J1eGdrWHVFWGp2cTlENEdsZ3gwRTgybVhCUDZqREU?oc=5"
     },
     {
-      "id": "comp-af50f64e",
+      "id": "comp-705446d6",
       "cat": "competitor",
       "src": "Moving2Canada",
-      "date": "Apr 16, 2026",
-      "title": "NOC Code Disputes in Express Entry and What Fairness Should Actually Require",
+      "date": "Apr 17, 2026",
+      "title": "Canada Could Move Toward a More Selective International Student System",
       "summary": "New content from Moving2Canada.",
       "tags": [
         "Moving2Canada",
         "Competitor"
       ],
       "urgency": "low",
-      "url": "https://moving2canada.com/features/noc-code-disputes-express-entry-fairness/"
+      "url": "https://moving2canada.com/news/cimm-report-international-students-april-2026/"
     },
     {
-      "id": "comp-5ccd91d5",
+      "id": "comp-00b23ebd",
       "cat": "competitor",
       "src": "Moving2Canada",
-      "date": "Apr 16, 2026",
-      "title": "Canada Invites 4,000 French-Speaking Candidates in Latest Express Entry Draw",
+      "date": "Apr 17, 2026",
+      "title": "Provinces Fell Short of Their Provincial Nomination Targets in 2025: IRCC Data",
       "summary": "New content from Moving2Canada.",
       "tags": [
         "Moving2Canada",
         "Competitor"
       ],
       "urgency": "low",
-      "url": "https://moving2canada.com/news/4000-ita-ee-draw-french-april-15/"
+      "url": "https://moving2canada.com/features/provinces-fell-short-of-provincial-nomination-targets-in-2025-ircc-data/"
     }
   ]
 }
