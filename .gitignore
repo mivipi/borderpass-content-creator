@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment — never commit real keys
+.env.local
+.env.*.local
+
+# Local data storage (runtime state, not source)
+data/app-data.json
+
+# Build artifacts
+tsconfig.tsbuildinfo
+
+# macOS
+.DS_Store
+
+# Misc
+*.log
